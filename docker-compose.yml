@@ -330,7 +330,7 @@ services:
       retries: 3
       start_period: 60s
   arkime:
-    image: ghcr.io/idaholab/malcolm/arkime:25.04.0
+    image: ghcr.io/scott-jeffery/malcolm/arkime:modify_arkime_container
     profiles: ["malcolm", "hedgehog"]
     logging:
       driver: local
@@ -466,7 +466,6 @@ services:
         create_host_path: false
       source: ./arkime/etc/wise.ini
       target: /opt/arkime/wiseini/wise.ini
-      read_only: true
     healthcheck:
       test: ["CMD", "/usr/local/bin/container_health.sh"]
       interval: 90s
