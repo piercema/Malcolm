@@ -330,7 +330,7 @@ services:
       retries: 3
       start_period: 60s
   arkime:
-    image: ghcr.io/scott-jeffery/malcolm/arkime:modify_arkime_container
+    image: ghcr.io/scott-jeffery/malcolm/arkime:wise_pluggin_exposure
     profiles: ["malcolm", "hedgehog"]
     logging:
       driver: local

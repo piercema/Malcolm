@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: arkime-container
-        image: ghcr.io/scott-jeffery/malcolm/arkime:modify_arkime_container
+        image: ghcr.io/scott-jeffery/malcolm/arkime:wise_pluggin_exposure
         imagePullPolicy: Always
         stdin: false
         tty: true

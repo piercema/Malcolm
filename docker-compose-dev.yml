@@ -372,7 +372,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfiles/arkime.Dockerfile
-    image: ghcr.io/idaholab/malcolm/arkime:25.04.0
+    image: ghcr.io/scott-jeffery/malcolm/arkime:wise_pluggin_exposure
     profiles: ["malcolm", "hedgehog"]
     logging:
       driver: local
