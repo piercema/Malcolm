@@ -1429,7 +1429,9 @@ def start():
             )
 
         # if the OpenSearch keystore doesn't exist exist, create empty ones
-        if not os.path.isfile(os.path.join(GetMalcolmPath(), os.path.join('opensearch', 'opensearch.keystore'))):
+        if ((orchMode is not OrchestrationFramework.DOCKER_COMPOSE) or (args.composeProfile == PROFILE_MALCOLM)) and (
+            not os.path.isfile(os.path.join(GetMalcolmPath(), os.path.join('opensearch', 'opensearch.keystore')))
+        ):
             keystore_op('opensearch', True, 'create')
 
         # make sure permissions are set correctly for the worker processes
@@ -3137,7 +3139,7 @@ def main():
         metavar='<string>',
         type=str,
         default=os.getenv('MALCOLM_IMAGE_TAG', None),
-        help='Tag for container images (e.g., "26.05.0"; only for "start" operation with Kubernetes)',
+        help='Tag for container images (e.g., "26.05.2"; only for "start" operation with Kubernetes)',
     )
     kubernetesGroup.add_argument(
         '--delete-namespace',

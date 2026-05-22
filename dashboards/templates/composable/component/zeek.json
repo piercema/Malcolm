@@ -547,28 +547,28 @@
                 "seen_where": {
                   "type": "keyword"
                 },
-                "confidence" : {
+                "confidence": {
                   "type": "float"
                 },
-                "threat_score" : {
+                "threat_score": {
                   "type": "float"
                 },
-                "verdict" : {
+                "verdict": {
                   "type": "keyword"
                 },
-                "verdict_source" : {
+                "verdict_source": {
                   "type": "keyword"
                 },
-                "associated" : {
+                "associated": {
                   "type": "keyword"
                 },
-                "category" : {
+                "category": {
                   "type": "keyword"
                 },
-                "campaigns" : {
+                "campaigns": {
                   "type": "keyword"
                 },
-                "reports" : {
+                "reports": {
                   "type": "keyword"
                 }
               }

@@ -373,7 +373,7 @@ def execute_restore_commands(args, database_file):
         '-p',
         str(args.postgres_port),
         '-U',
-        {args.postgres_user},
+        args.postgres_user,
         '-c',
         'TRUNCATE users_user CASCADE',
     ]
@@ -395,6 +395,8 @@ def perform_migrations(netbox_venv_py, manage_script):
             os.path.basename(manage_script),
             "migrate",
             "--check",
+            "--no-input",
+            "--no-color",
         ]
         err, results = malcolm_utils.run_process(cmd, logger=logging)
         if err != 0:
@@ -402,21 +404,26 @@ def perform_migrations(netbox_venv_py, manage_script):
                 [
                     "migrate",
                     "--no-input",
+                    "--no-color",
                 ],
                 [
                     "trace_paths",
                     "--no-input",
+                    "--no-color",
                 ],
                 [
                     "remove_stale_contenttypes",
                     "--no-input",
+                    "--no-color",
                 ],
                 [
                     "clearsessions",
+                    "--no-color",
                 ],
                 [
                     "reindex",
                     "--lazy",
+                    "--no-color",
                 ],
             ]:
 
@@ -431,12 +438,15 @@ def perform_migrations(netbox_venv_py, manage_script):
             netbox_venv_py,
             os.path.basename(manage_script),
             "shell",
+            "--no-color",
             "--interface",
             "python",
         ]
         with open('/usr/local/bin/netbox_superuser_create.py', 'r') as f:
             err, results = malcolm_utils.run_process(cmd, logger=logging, stdin=f.read())
-        if (err != 0) or (not results):
+        if (err == 0) and results:
+            logging.info(f'success setting up superuser: {results}')
+        else:
             logging.error(f'{err} setting up superuser: {results}')
             success = False
 
@@ -597,6 +607,8 @@ def ensure_default_permissions(args, nb, groups):
                 'users.token',
                 'users.user',
                 'users.userconfig',
+                'users.owner',
+                'users.ownergroup',
             ],
         }
         default_group_permissions[f'{group_name}_user_config_permission'] = {
@@ -634,7 +646,7 @@ def ensure_default_permissions(args, nb, groups):
 
     try:
         # get all content types (for creating new permissions)
-        all_object_type_names = [f'{x.app_label}.{x.model}' for x in nb.extras.object_types.all()]
+        all_object_type_names = [f'{x.app_label}.{x.model}' for x in nb.core.object_types.all()]
 
         perms_pre_existing = {x.name: x for x in nb.users.permissions.all()}
         logging.debug(f"permissions (before): { {k:v.id for k, v in perms_pre_existing.items()} }")
@@ -819,6 +831,7 @@ def process_netbox_initializers(args, netbox_venv_py, manage_script):
                             netbox_venv_py,
                             os.path.basename(manage_script),
                             "load_initializer_data",
+                            "--no-color",
                             "--path",
                             tmp_preload_dir,
                         ],
@@ -846,8 +859,10 @@ def process_device_type_library_import(args, netbox_venv_py):
                 os_env = os.environ.copy()
                 os_env['NETBOX_URL'] = args.netbox_url
                 os_env['NETBOX_TOKEN'] = args.netbox_token
+                os_env.pop('VIRTUAL_ENV', None)
                 os_env['REPO_URL'] = 'local'
-                cmd = [netbox_venv_py, 'nb-dt-import.py']
+                os_env['REPO_PATH'] = './repo'
+                cmd = [netbox_venv_py, '-m', 'uv', 'run', '--no-sync', 'nb-dt-import.py']
                 err, results = malcolm_utils.run_process(
                     cmd,
                     logger=logging,
@@ -868,6 +883,10 @@ def process_device_type_library_import(args, netbox_venv_py):
 def process_custom_netbox_scripts(args, netbox_venv_py, manage_script):
     # ######  Custom Scripts #######################################################################################
     results = []
+
+    if not args.scripts_dir:
+        return results
+
     scripts_path = Path(args.scripts_dir).expanduser().resolve()
 
     if not scripts_path.is_dir():
@@ -1004,9 +1023,7 @@ def main():
         fix_missing_prefix_descriptions(nb)
 
     process_custom_netbox_scripts(args, netbox_venv_py, manage_script)
-
     process_netbox_initializers(args, netbox_venv_py, manage_script)
-
     if not preload_database_success and (not args.preload_backup_file):
         process_device_type_library_import(args, netbox_venv_py)
 

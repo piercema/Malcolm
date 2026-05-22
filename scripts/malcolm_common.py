@@ -1687,6 +1687,7 @@ LOG_IGNORE_REGEX = re.compile(
   | \bGET.+\b302\s+30\b
   | \d+\s+changes\s+in\s+\d+\s+seconds\.\s+Saving
   | _cat/indices
+  | API_TOKEN_PEPPERS\s+is\s+not\s+defined
   | Background\s+saving\s+started
   | Background\s+saving\s+terminated\s+with\s+success
   | branding.*config\s+is\s+not\s+found\s+or\s+invalid
@@ -1704,6 +1705,7 @@ LOG_IGNORE_REGEX = re.compile(
   | Error\s+during\s+file\s+comparison:.*no\s+such\s+file
   | Error\s+while\s+removing\s+state\s+from\s+statestore:\s+resource\s+.*\s+not\s+found
   | eshealth
+  | Test\s+run\s+complete.+failed:\s+0,\s+errored:\s+0
   | esindices/list
   | executing\s+attempt_(transition|set_replica_count)\s+for
   | failed\s+to\s+get\s+tcp6?\s+stats\s+from\s+/proc

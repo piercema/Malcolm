@@ -12,6 +12,7 @@
   ##  Pay attention to Vega additions after V5
   // ## todo stop on broadcasts
   "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "background": "#0a121a",      // Malcolm dark background
   // Make room for binds under the graph
   "autosize": {
     "type": "fit-x",
@@ -382,38 +383,55 @@
     },
     // Takes User Input to define the initial root
     {
-      "name": "userInputRoot",
+      "name": "userInput",
       "init": "''",
       "bind": {
         "input": "search",
-        "placeholder": "  x.x.x.x ", // place holder to show syntax to user - spaces used to center placeholder in bind box
-        "name": "Root IP",
+        "name": "File Name/Node ID",
         "debounce": 1200
       }
     },
-    // Finds the index of the root src IP
+    // Find the node ID for the file name in the table
     {
-      "name": "rootIndex",
-      "update": "indexof(pluck(data('table'), 'src'), userInputRoot) "
+      "name": "getNodeID_filename",   // finds the node ID based off the file name
+      "update": "userInput === pluck(data('table'), 'file_name')[indexof(pluck(data('table'), 'file_name'), userInput)] ? pluck(data('table'), 'node')[indexof(pluck(data('table'), 'file_name'), userInput)] : null"
     },
-    // Pulls the src information based on the rootIndex and stores it as intitialRoot
+    {
+      "name": "getNodeID_filename2",    // finds the node ID based off the root file name if no file.name matches the userInput
+      "update": "!isValid(getNodeID_filename) ? pluck(data('table'), 'root')[indexof(pluck(data('table'), 'root_file_name'), userInput)] : getNodeID_filename"
+    },
+    {
+      "name": "nodeID",   // finds the node ID if the node ID was entered instead of a file name
+      "update": "!isValid(getNodeID_filename2) ? pluck(data('table'), 'node')[indexof(pluck(data('table'), 'node'), userInput)] : getNodeID_filename2"
+    },
+    {
+      "name": "getRootID",
+      "update": "pluck(data('table'), 'root')[indexof(pluck(data('table'), 'node'), nodeID)]"
+    },
     {
       "name": "initialRoot",
-      "update": "pluck(data('table'), 'src')[rootIndex]",
-    },
-    // pulls enrichment data for the intialRoot based on rootIndex
+      "update": "pluck(data('table'), 'node')[indexof(pluck(data('table'), 'node'), getRootID)]"
+    }
+    // Finds the index of the root file
     {
-      "name": "initialRootData",
+      "name": "rootIndex",
+      "update": "indexof(pluck(data('table'), 'node'), initialRoot)"
+      // "update": "indexof(pluck(data('table'), 'src'), userInput)"
+    },
+    // pulls enrichment data for the file root based on rootIndex
+    {
+      "name": "rootData",
       "update": "pluck(data('table'), 'aggregated_objs')[rootIndex]",
     },
     // checks if the searched IP exists in table or if the search bar is empty to determine whether to show the error
     {
       "name": "nonexistentIPWarning",
-      "update": "(rootIndex !== -1) || (userInputRoot === '') ? true : false"
+      "update": "(rootIndex !== -1) || (userInput === '') ? true : false"
     },
     {
       "name": "initialConnection2",
-      "update": "null + '+' + userInputRoot"
+      // "update": "initialRoot"
+      "update": "null + '+' + initialRoot"
     },
     {
       "name": "treeDepth",
@@ -422,7 +440,7 @@
     // Allow the depth of the tree to be chosen
     {
       "name": "n",
-      "init": 3,
+      "init": 15,
       "bind": {
         "input": "range",
         "min": 1,
@@ -431,27 +449,6 @@
         "name": "Tree Height",
         "debounce": 300
       }
-    },
-    // time filter toggle
-    {
-      "name": "timeFilter",
-      "init": "'Off'",
-      "bind": {
-        "input": "radio",
-        "options": ["On", "Off"],
-        "name": "Time Filter",
-        "debounce": 300
-      }
-    },
-    {
-      "name": "On",
-      "init": "",
-      "debounce": 300
-    },
-    {
-      "name": "Off",
-      "update": "",
-      "debounce": 300
     },
     // change scale for nodeColor
       {
@@ -496,16 +493,16 @@
             "update": "n <= nPrev",
             "force": true
           },
+          // {
+          //   "events": {
+          //     "signal": "timeFilter"
+          //   },
+          //   "update": "timeFilter",
+          //   "force": true
+          // },
           {
             "events": {
-              "signal": "timeFilter"
-            },
-            "update": "timeFilter",
-            "force": true
-          },
-          {
-            "events": {
-              "signal": "userInputRoot"
+              "signal": "userInput"
             },
             "update": "nonexistentIPWarning",
             "force": true
@@ -555,11 +552,6 @@
           }
         ]
       },
-      {
-        "name": "count_num_connections",
-        //"value": 0,
-        //"init": "data(datum.proto)"
-      },
       //Return the index of the device_array where the ip matches the current node's dst field
       {
         "name": "nodeEnrich",
@@ -567,7 +559,7 @@
         "on":[
           {
             "events": "@node:mouseover",
-            "update": "indexof(pluck(datum.device_array, 'ip'), split(datum.identifier,'+')[1])",
+            "update": "indexof(pluck(datum.device_array, 'id'), split(datum.identifier,'+')[1])",
             "force": "true",
           },
           {
@@ -580,7 +572,7 @@
       // Get the data at nodeEnrich index from the device_array
       {
         "name": "device_data",
-        "value": "{'ip': null}", //declare initial as null to avoid startup error
+        "value": "{'id': null}", //declare initial as null to avoid startup error
         "on":[
           {
             "events": "@node:mouseover",
@@ -594,75 +586,13 @@
           },
         ]
       },
-      // Determine if netbox enrichment exists for a node and then pull the role value as a string
-      {
-        "name": "netbox_role",
-        "on":[
-          {
-            "events": "@node:mouseover",
-            "update": "device_data.device ? toString(pluck(device_data.device, 'role')) : null",
-            "force": "true"
-          },
-        ]
-      },
-      // Determine if netbox enrichment exists for a node and then pull the name value as a string
-      {
-        "name": "netbox_name",
-        "on":[
-          {
-            "events": "@node:mouseover",
-            "update": "device_data.device ? toString(pluck(device_data.device, 'name')) : null",
-            "force": "true"
-          },
-        ]
-      },
-      // {
-      //   "name": "device_host_name",
-      //   "on":[
-      //     {
-      //       "events": "@node:mouseover",
-      //       "update": "datum.device_array[2].host_name ? pluck(datum.device_array[2], 'host_name') : null",
-      //       "force": "true"
-      //     },
-      //   ]
-      // },
-      {
-        "name": "device_mac",
-        "on":[
-          {
-            "events": "@node:mouseover",
-            "update": "device_data.mac ? toString(pluck(device_data, 'mac')) : null ",
-            "force": "true"
-          },
-        ]
-      },
-      {
-        "name": "device_oui",
-        "on":[
-          {
-            "events": "@node:mouseover",
-            "update": "device_data.oui ? toString(pluck(device_data, 'oui')) : null",
-            "force": true,
-          }
-        ]
-      },
-      {
-        "name": "device_as",
-        "on":[
-          {
-            "events": "@node:mouseover",
-            "update": "device_data ? pluck(device_data, 'as') : null",
-            "force": true,
-          }
-        ]
-      },
       // Format the node hover data so tooltip is populated
       {
         "name": "device_info",
         "on":[
           {
             "events": "@node:mouseover",
-            "update": "{'IP': device_data.ip, 'MAC': device_mac, 'OUI': device_oui, 'As': device_as, 'Netbox Name': netbox_name, 'Netbox Role': netbox_role }",
+            "update": "{'Node ID': device_data.id, 'Root File Name': device_data.root_file_name, 'MIME Type': device_data.file_mime_type, 'Source': device_data.file_source, 'Size': device_data.file_size + ' bytes', 'Related IPs': device_data.related_ips, 'Time': toString(datum.date_obj)}",
             "force": "true"
           },
           {
@@ -682,52 +612,28 @@
         ]
       },
       {
-        "name": "tooltip2",
+        "name": "tooltip_rules",
         "value": {},
         "on": [
-          {"events": "path:mouseover", "update": "pluck(datum.target.enrichment, 'conn_state')" },
-          {"events": "path:mouseout", "update": "{}"}
+          {"events": "@node:mouseover", "update": "pluck(datum.enrichment, 'rule_name')" },
+          {"events": "@node:mouseout", "update": "{}"}
         ]
       },
       {
-        "name": "tooltip3",
+        "name": "tooltip_rulesTitle",
         "value": {},
         "on": [
-          {"events": "path:mouseover", "update": "pluck(datum.target.enrichment, 'protocolArr')" },
-          {"events": "path:mouseout", "update": "{}"}
+          {"events": "@node:mouseover", "update": "pluck(datum.enrichment, 'rule_name')" },
+          {"events": "@node:mouseout", "update": "{}"}
         ]
       },
       {
-        "name": "byte_data",
+        "name": "fileNameEnrich",
         "value": {},
         "on": [
-          {"events": "path:mouseover", "update": "pluck(datum.target.enrichment, 'bytesArr')" },
-          {"events": "path:mouseout", "update": "{}"}
+          {"events": "@node:mouseover", "update": "pluck(datum.enrichment, 'file_name')"},
+          {"events": "@node:mouseout", "update": "{}"}
         ]
-      },
-      {
-        "name": "enrichmentSrc",
-        "value": {},
-        "on": [
-          {"events": "path:mouseover", "update": "pluck(datum.target.enrichment, 'src')"},
-          {"events": "path:mouseout", "update": "{}"}
-        ]
-      },
-      {
-        "name": "enrichmentDst",
-        "value": {},
-        "on": [
-          {"events": "path:mouseover", "update": "pluck(datum.target.enrichment, 'dst')"},
-          {"events": "path:mouseout", "update": "{}"}
-        ]
-      },
-      {
-        "name": "bytes_extent",
-        "update": "{'min': pluck(data('bytesExtent'), 'byteMin')[0], 'max': pluck(data('bytesExtent'), 'byteMax')[0]}"
-      },
-      {
-        "name": "time_extent",
-        "update": "{'min': pluck(data('timeExtent'), 'timeMin'), 'max': pluck(data('timeExtent'), 'timeMax')}"
       },
       {
         "name": "connection_time",
@@ -760,10 +666,7 @@
                 "must": [
                   {
                     "match":{
-                      "event.provider":"zeek",
-                    },
-                    "match":{
-                      "event.dataset":"conn",
+                      "event.dataset": "strelka",     // must include filescan.tree fields to create tree
                     }
                   }
                   "%dashboard_context-must_clause%"
@@ -782,12 +685,7 @@
                   },
                   {
                     "exists": {
-                      "field": "event.id"
-                    }
-                  },
-                  {
-                    "exists": {
-                      "field": "timestamp"
+                      "field": "firstPacket"
                     }
                   },
               ]
@@ -800,10 +698,11 @@
               "composite": {
                 "size": 30000,
                 "sources": [
-                  {"src": { "terms": {"field": "source.ip"} } },
-                  {"dst": {"terms": {"field": "destination.ip"}} },
-                  // {"protocol": {"terms": {"field": "protocol"}} },
-                  {"conn_state": {"terms": {"field": "zeek.conn.conn_state"}}}
+                  {"node": {"terms": {"field": "filescan.tree.node"}}},
+                  {"parent": { "terms": {"field": "filescan.tree.parent", "missing_bucket": true}}},
+                  {"root": { "terms": {"field": "filescan.tree.root"}}},
+                  {"file_name": { "terms": {"field": "file.name", "missing_bucket": true}}},
+                  {"root_file_name": { "terms": {"field": "zeek.files.filename", "missing_bucket": true}}},
                 ]
               },
                 "aggs": {
@@ -814,10 +713,11 @@
                         "includes": [
                           "source",
                           "destination",
-                          "protocol",
-                          "totDataBytes",
-                          "timestamp",
-                          // "host"
+                          "firstPacket",
+                          "file",
+                          "rule",
+                          "filescan.tree.depth",
+                          "related"
                         ]
                       }
                     }
@@ -835,82 +735,77 @@
       "transform": [
         // surfaced aggregated objs, src and dst device, protocols, segment names, conn states in the metadata (prettification)
         {
-          "type": "formula",
-          "expr": "datum.metadata.hits.hits[0]._source.protocol ? datum.metadata.hits.hits[0]._source.protocol : null",
-          "as": "proto"
-        },
-        {
-          "type": "formula",
-          "expr": "datum.metadata.hits.hits[0]._id ? datum.metadata.hits.hits[0]._id : null",
-          "as": "log_id"
-        },
-        {
           "type": "project",
-          "fields": ["key.src", "key.dst", "key.conn_state", "metadata.hits.hits[0]._source.source", "metadata.hits.hits[0]._source.destination", "proto", "metadata.hits.hits[0]._source.totDataBytes", "metadata.hits.hits[0]._source.timestamp"],
-          "as": ["src", "dst", "conn_state", "source", "destination", "protocol", "total_bytes", "time"]
-        },
-        {
-          "type":"formula",
-          "expr": "toString(datum.protocol)",
-          "as": "proto_string"
+          "fields": ["key.node", "key.parent", "key.root", "key.file_name", "key.root_file_name", "metadata.hits.hits[0]._source.source", "metadata.hits.hits[0]._source.destination", "metadata.hits.hits[0]._source.firstPacket", "metadata.hits.hits[0]._source.file", "metadata.hits.hits[0]._source.rule", "metadata.hits.hits[0]._source.filescan.tree.depth", "metadata.hits.hits[0]._source.related"],
+          "as": ["node", "parent", "root", "file_name", "root_file_name", "source", "destination", "timestamp", "file", "rule", "file_depth", "related"]
         },
         {
           "type": "aggregate",
-          "groupby": ["src", "dst"],
-          "fields":["proto", "total_bytes"],
-          "ops":["values", "mean"],
-          "as": ["aggregated_objs", "byteAvg"]
+          "groupby": ["file_depth", "root", "parent", "node"],
+          "fields":["file_depth"],
+          "ops":["values"],
+          "as": ["aggregated_objs"]
+        },
+
+        // Use to check for multiple files with the same node ID - strelka bug?
+        // {
+        //   "type": "aggregate",
+        //   "groupby": ["node"],
+        //   "fields":["file_name"],
+        //   "ops":["count"],
+        //   "as": ["distinct"]
+        // },
+        // {
+        //   "type": "formula",
+        //   "expr": "datum.distinct > 1 ? true : false",
+        //   "as": "distinctCheck"
+        // }
+
+        {
+          "type":"formula",
+          "expr": "datum.aggregated_objs ? pluck(datum.aggregated_objs, 'file_name')[0] : null",
+          "as": "file_name"
         },
         {
           "type":"formula",
-          "expr": "length(datum.aggregated_objs)",
-          "as": "num_connections"
+          "expr": "datum.aggregated_objs ? pluck(datum.aggregated_objs, 'root_file_name')[0] : null",
+          "as": "root_file_name"
         },
         {
           "type":"formula",
-          "expr": "datum.aggregated_objs ? pluck(datum.aggregated_objs, 'conn_state') : null",
-          "as": "conn_state"
+          "expr": "datum.aggregated_objs ? toNumber(pluck(datum.aggregated_objs, 'file_depth')[0]) : null",
+          "as": "file_depth"
         },
         {
           "type":"formula",
-          "expr": "datum.aggregated_objs ? pluck(datum.aggregated_objs, 'proto_string') : null",
-          "as": "protocolArr"
+          "expr": "datum.aggregated_objs[0].file ? pluck(datum.aggregated_objs[0].file, 'mime_type')[0] : null",
+          "as": "file_mime_type"
         },
         {
           "type":"formula",
-          "expr": "datum.aggregated_objs ? pluck(datum.aggregated_objs, 'total_bytes') : null",
-          "as": "bytesArr"
+          "expr": "datum.aggregated_objs[0].file ? pluck(datum.aggregated_objs[0].file, 'source') : null",
+          "as": "file_source"
         },
         {
           "type":"formula",
-          "expr": "datum.aggregated_objs ? pluck(datum.aggregated_objs, 'time')[0] : null",
+          "expr": "datum.aggregated_objs[0].file ? pluck(datum.aggregated_objs[0].file, 'size') : null",
+          "as": "file_size"
+        },
+        {
+          "type":"formula",
+          "expr": "datum.aggregated_objs[0].rule ? pluck(datum.aggregated_objs[0].rule, 'name') : null",
+          "as": "rule_name"
+        },
+        {
+          "type":"formula",
+          "expr": "datum.aggregated_objs[0].related ? toString(pluck(datum.aggregated_objs[0].related, 'ip')) : null",
+          "as": "related_ips"
+        },
+        {
+          "type":"formula",
+          "expr": "datum.aggregated_objs ? toDate(pluck(datum.aggregated_objs, 'timestamp')[0]) : null",
           "as": "timestamp"
         },
-        {
-          "type":"formula",
-          "expr": "datum.aggregated_objs ? pluck(datum.aggregated_objs, 'destination')[0] : null", //hardcoded to first index of objects because device is enriched from netbox not network traffic
-          "as": "dst_device"
-        },
-        {
-          "type":"formula",
-          "expr": "datum.aggregated_objs ? pluck(datum.aggregated_objs, 'source')[0] : null", //hardcoded to first index of objects because device is enriched from netbox not network traffic
-          "as": "src_device"
-        },
-        {
-          "type":"formula",
-          "expr": "datum.aggregated_objs[0].destination.segment ? pluck(datum.aggregated_objs[0].destination.segment, toString('name')) : null", //hardcoded to first index of objects because segment is enriched from netbox not network traffic
-          "as": "dst_segment"
-        },
-        {
-          "type":"formula",
-          "expr": "datum.aggregated_objs[0].source.segment ? pluck(datum.aggregated_objs[0].source.segment, toString('name')) : null", //hardcoded to first index of objects because segment is enriched from netbox not network traffic
-          "as": "src_segment"
-        },
-        // {
-        //   "type":"formula",
-        //   "expr": "datum.aggregated_objs[0].host ? pluck(datum.aggregated_objs[0].host, 'name') : null",
-        //   "as": "host_name"
-        // },
       ]
     },
     {
@@ -936,7 +831,7 @@
         },
         {
           "trigger": "clear || initialRoot",
-          "insert": "{'id': initialRoot, 'depth': 0, 'identifier': initialConnection2, 'testCat': null}"
+          "insert": "{'id': initialRoot, 'depth': 0, 'identifier': initialConnection2}"
         },
         {
           "trigger": "step",
@@ -958,11 +853,11 @@
         },
         {
           "trigger": "clear || initialRoot",
-          "insert": "(nonexistentIPWarning !== false) && (userInputRoot !== '') ? {'src': null, 'dst': initialRoot, 'id': initialRoot, 'depth': 0, 'enrichment': initialRootData, 'identifier': initialConnection2, 'parentIdentifier': null, 'testSplit': null, 'testCat': null} : null"    // If IP exists in table then insert the initial node, otherwise do not insert
+          "insert": "(nonexistentIPWarning !== false) && (userInput !== '') ? {'parent': null, 'node': initialRoot, 'id': initialRoot, 'depth': 0, 'enrichment': rootData, 'identifier': initialConnection2, 'parentIdentifier': null} : null"    // If IP exists in table then insert the initial node, otherwise do not insert
         },
         {
           "trigger": "step",
-          "insert": "(nonexistentIPWarning !== false) && (userInputRoot !== '') ? data('next') : null"
+          "insert": "(nonexistentIPWarning !== false) && (userInput !== '') ? data('next') : null"
         },
       ],
       "transform":[
@@ -973,40 +868,80 @@
           "as": "enrich_len"
         },
         {
-          "type": "formula",
-          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? pluck(datum.enrichment, 'proto_string') : datum.protocolArr",
-          "as": "protocolArr"
+          "type":"formula",
+          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? pluck(datum.enrichment, 'root')[0] : datum.root",
+          "as": "root"
         },
         {
-          "type": "formula",
-          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? pluck(datum.enrichment, 'conn_state') : datum.conn_state",
-          "as": "conn_state"
+          "type":"formula",
+          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? pluck(datum.enrichment, 'parent')[0] : datum.parent",
+          "as": "parent"
         },
         {
-          "type": "formula",
-          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? pluck(datum.enrichment, 'destination')[0] : datum.dst_device", // hardcoded to first index of objects because device is enriched from netbox not network traffic
-          "as": "dst_device"
+          "type":"formula",
+          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? pluck(datum.enrichment, 'node')[0] : datum.node",
+          "as": "node"
         },
         {
-          "type": "formula",
-          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? pluck(datum.enrichment, 'source')[0] : datum.src_device", // hardcoded to first index of objects because device is enriched from netbox not network traffic
-          "as": "src_device"
+          "type":"formula",
+          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? pluck(datum.enrichment, 'file_name')[0] : datum.file_name",
+          "as": "file_name"
         },
         {
-          "type": "formula",
-          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? toString(pluck(datum.enrichment, 'destination.segment')) : datum.dst_segment", // hardcoded to first index of objects because segment is enriched from netbox not network traffic
-          "as": "dst_segment"
+          "type":"formula",
+          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? pluck(datum.enrichment, 'root_file_name')[0] : datum.root_file_name",
+          "as": "root_file_name"
         },
         {
-          "type": "formula",
-          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? toString(pluck(datum.enrichment, 'source.segment')) : datum.src_segment", // hardcoded to first index of objects because segment is enriched from netbox not network traffic
-          "as": "src_segment"
+          "type":"formula",
+          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? toNumber(pluck(datum.enrichment, 'file_depth')[0]) : datum.file_depth",
+          "as": "file_depth"
         },
-        // {
-        //   "type": "formula",
-        //   "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? toString(pluck(datum.enrichment, 'host.name')) : datum.host_name", // hardcoded to first index of objects because device is enriched from netbox not network traffic
-        //   "as": "host_name"
-        // },
+        {
+          "type":"formula",
+          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? pluck(datum.enrichment, 'file')[0] : null",
+          "as": "file"
+        },
+        {
+          "type":"formula",
+          "expr": "isValid(datum.file) && datum.enrich_len > 0 ? toString(datum.file.mime_type) : datum.file_mime_type",
+          "as": "file_mime_type"
+        },
+        {
+          "type":"formula",
+          "expr": "isValid(datum.file) && datum.enrich_len > 0 ? datum.file.source : datum.file_source",
+          "as": "file_source"
+        },
+        {
+          "type":"formula",
+          "expr": "isValid(datum.file) && datum.enrich_len > 0 ? datum.file.size : datum.file_size",
+          "as": "file_size"
+        },
+        {
+          "type":"formula",
+          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? pluck(datum.enrichment, 'rule')[0] : datum.rule_name",
+          "as": "rule_name"
+        },
+        {
+          "type":"formula",
+          "expr": "isValid(datum.rule_name) && datum.enrich_len > 0 ? datum.rule_name.name : datum.rule_name",
+          "as": "rule_name"
+        },
+        {
+          "type":"formula",
+          "expr": "!isValid(datum.rule_name) ? 'None' : datum.rule_name",
+          "as": "rule_name"
+        },
+        {
+          "type":"formula",
+          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? toString(pluck(datum.enrichment[0].related, 'ip')) : datum.related_ips",
+          "as": "related_ips"
+        },
+        {
+          "type":"formula",
+          "expr": "isValid(datum.enrichment) && datum.enrich_len > 0 ? toDate(pluck(datum.enrichment, 'timestamp')[0]) : datum.timestamp",
+          "as": "timestamp"
+        },
       ]
     },
     // Tracks what nodes to search next
@@ -1019,26 +954,20 @@
           "type": "filter",
           "expr": "treeDepth < n"
         },
-        // unique identifier for strat
         {
           "type": "formula",
-          "expr": "datum.src + '+' + datum.dst",
+          "expr": "isValid(datum.parent) ? datum.parent : datum.root",
+          "as": "effectiveParent"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.effectiveParent + '+' + datum.node",
           "as": "identifier"
         },
         {
           "type": "formula",
-          "expr": " datum.src === pluck(data('visited'), 'dst')[indexof(pluck(data('visited'), 'dst'), datum.src)] ? pluck(data('visited'), 'identifier')[indexof(pluck(data('visited'), 'dst'), datum.src)] : null",
+          "expr": " datum.effectiveParent === pluck(data('visited'), 'node')[indexof(pluck(data('visited'), 'node'), datum.effectiveParent)] ? pluck(data('visited'), 'identifier')[indexof(pluck(data('visited'), 'node'), datum.effectiveParent)] : null",
           "as": "parentIdentifier"
-        },
-        {
-          "type": "formula",
-          "expr": "datum.src + '+' + datum.dst",
-          "as": "testCat"
-        },
-        {
-          "type": "formula",
-          "expr": "split(datum.testCat,'+')[0]",
-          "as": "testSplit"
         },
         {
           "type": "lookup",
@@ -1060,25 +989,18 @@
           "expr": "isValid(datum.parentDepth)"
         },
         {
+          "type": "filter",
+          "expr": "!indata('visited', 'node', datum.node)"
+        },
+        {
           "type": "formula",
-          "expr": "datum.dst",
+          "expr": "datum.node",
           "as": "id"
         },
         {
           "type": "formula",
           "expr": "datum.parentDepth + 1",
           "as": "depth"
-        },
-        // Grab the parent node timestamp and insert into current node metadata
-        {
-          "type": "formula",
-          "expr": "(datum.src === pluck(data('visited'), 'dst')[indexof(pluck(data('visited'), 'dst'), datum.src)]) && (datum.parentIdentifier === pluck(data('visited'), 'identifier')[indexof(pluck(data('visited'), 'identifier'), datum.parentIdentifier)]) ? pluck(data('visited'), 'timestamp')[indexof(pluck(data('visited'), 'dst'), datum.src)] : null",
-          "as": "parentTime"
-        },
-        // time filter - filter out past timestamps (nodes)
-        {
-          "type": "filter",
-          "expr": "timeFilter === 'On' && datum.depth > 1 ? datum.timestamp > datum.parentTime : 'Off'",
         },
       ]
     },
@@ -1095,7 +1017,7 @@
             "parentIdentifier",
             "identifier",
           ],
-          "fields": ["protocolArr"], // passes down enrichment data
+          "fields": ["node"], // passes down enrichment data
           "ops": ["values"],
           "as": ["enrichment"]
         },
@@ -1200,14 +1122,14 @@
         // Creates device_array to determine which device info to show on node hover
         {
           "type": "formula",
-          "expr": "[pluck(datum.enrichment[0], 'dst_device'), pluck(datum.enrichment[0], 'src_device'), datum.enrichment[0]]",
+          "expr": "[datum.enrichment[0]]",
           "as": "device_array"
         },
-        {
-          "type": "formula",
-          "expr": "pluck(datum.enrichment, 'byteAvg')[0]",    // must be pluck and NOT datum.byteAvg
-          "as": "byteAvg"
-        },
+        // {
+        //   "type": "formula",
+        //   "expr": "pluck(datum.enrichment, 'byteAvg')[0]",    // must be pluck and NOT datum.byteAvg
+        //   "as": "byteAvg"
+        // },
         {
           "type": "formula",
           "expr": "pluck(datum.enrichment, 'timestamp')[0]", // grabs timestamp field value from enrichment object
@@ -1220,30 +1142,6 @@
           "as": "date_obj"
         },
 
-      ]
-    },
-    {
-      "name": "bytesExtent",
-      "source": "visibleTree",
-      "transform":[
-        {
-          "type": "aggregate",
-          "fields": ["byteAvg", "byteAvg"],
-          "ops":["min", "max"],
-          "as": ["byteMin", "byteMax"]
-        },
-      ]
-    },
-    {
-      "name": "timeExtent",
-      "source": "visited",
-      "transform":[
-        {
-          "type": "aggregate",
-          "fields": ["timestamp", "timestamp"],
-          "ops":["min", "max"],
-          "as": ["timeMin", "timeMax"]
-        },
       ]
     },
     // Calculate paths between nodes
@@ -1259,19 +1157,9 @@
           "orient": "horizontal",
           "shape": "diagonal"
         },
-        {
-          "type": "formula",
-          "expr": "pluck(datum.target.enrichment, 'byteAvg')[0]",
-          "as": "byteAvg"
-        },
-        {
-          "type": "formula",
-          "expr": "isValid((datum.byteAvg - bytes_extent.min)/ (bytes_extent.max - bytes_extent.min)) ? (datum.byteAvg - bytes_extent.min)/ (bytes_extent.max - bytes_extent.min) : 1 ", //evaluates whether the normal number is valid, defaults to 1
-          "as": "byteAvg_normal"
-        },
-        ]
-      },
-    ],
+      ]
+    },
+  ],
     ## --------------------------------------------------------------------------------------------------------------------------
     ##  SECTION 3: Scales -------------------------------------------------------------------------------------------------------
     ##  Maps data values to either categorical data or numerical data to change the way the data presents visually
@@ -1343,7 +1231,7 @@
           }
         },
         "title": {
-          "text": "IP Connections Tree Hierarchy From Source",
+          "text": "File Tree",
           "orient": "top",
           "align": "center"
         },
@@ -1364,16 +1252,7 @@
                 "stroke": {
                   "value": "#7777"
                 },
-                "strokeDash":[
-                  {
-                  "test":"datum.byteAvg == 0",
-                  "value": [10,5]
-                  },
-                  {
-                    "signal": "null"
-                  }
-                ],
-                "strokeWidth": {"signal": "5 + (datum.byteAvg_normal * (20-5))"}
+                "strokeWidth": {"value": 5},
               },
               "hover": {
                 "cursor": {
@@ -1383,9 +1262,9 @@
                 "stroke": {
                   "value": "#aaa"
                 },
-                "tooltip": {
-                  "signal": "{'Time': toString(datum.target.date_obj),'Src Segment': toString(pluck(datum.target.enrichment, 'src_segment')), 'Dst Segment': toString(pluck(datum.target.enrichment, 'dst_segment')), 'Byte Avg': datum.byteAvg}",
-                }
+                // "tooltip": {
+                //   "signal": "{'Time': toString(datum.target.date_obj),'Src Segment': toString(pluck(datum.target.enrichment, 'src_segment')), 'Dst Segment': toString(pluck(datum.target.enrichment, 'dst_segment'))}",
+                // }
               }
             },
             "transform":[
@@ -1402,8 +1281,8 @@
             ]
           },
           {
-          "type": "text",     // ip title for enrichment box
-          "from": {"data": "links"},
+          "type": "text",     // file title for enrichment
+          "from": {"data": "visibleTree"},
             "encode": {
               "enter": {
                 // "align": {"value": "left"},
@@ -1414,16 +1293,16 @@
               "update": {
                 "x": {"value": -395},
                 "y": {"value": 20},
-                "text": {"signal": "enrichmentSrc + ' - ' + enrichmentDst"},
-                "font": {"value": "Arial"},
-                "fontStyle": {"value": "bold"},
-                "fontSize": {"value": 16},
-                "opacity": {"signal": "isArray(enrichmentSrc) ? 1 : 0" } // checks if enrichmentSrc is an array - if Array then text is an IP value and won't be [object Object] when opacity == 1
+                "text": {"signal": "fileNameEnrich"},
+                "font": {"value": "Monospace"},
+                "fontWeight": {"value": 50},
+                "fontSize": {"value": 17},
+                "opacity": {"signal": "isArray(fileNameEnrich) ? 1 : 0" } // checks if enrichmentSrc is an array - if Array then text is an IP value and won't be [object Object] when opacity == 1
               },
             }
           },
           {
-          "type": "text",     // header for conn state, bytes, protocols
+          "type": "text",     // header for flagged strelka rules
             "encode": {
               "enter": {
                 // "align": {"value": "left"},
@@ -1434,16 +1313,16 @@
               "update": {
                 "x": {"value": -395},
                 "y": {"value": 40},
-                "text": {"value": "Conn State   Bytes             Protocol"},
+                "text": {"value": "Flagged Strelka Rules"},
                 "font": {"value": "Arial"},
                 "fontStyle": {"value": "bold"},
                 "fontSize": {"value": 15},
-                "opacity": {"signal": "isArray(tooltip3) ? 1 : 0" } // checks if enrichmentSrc is an array - if Array then text is an IP value and won't be [object Object] when opacity == 1
+                "opacity": {"signal": "isArray(tooltip_rulesTitle) ? 1 : 0" } // checks if enrichmentSrc is an array - if Array then text is an IP value and won't be [object Object] when opacity == 1
               },
             }
           },
           {
-          "type": "text",     // conn state text in enrichment box
+          "type": "text",     // flagged strelka rules text in enrichment box
             "encode": {
               "enter": {
                 // "align": {"value": "left"},
@@ -1453,41 +1332,7 @@
               "update": {
                 "x": {"value": -395},
                 "y": {"value": 60},
-                "text": {"signal": "isArray(tooltip2) ? tooltip2 : 'Hover over node for node enrichment.' "}, // checks if node enrichments is populated, if not display user instructions
-                "font": {"value": "Arial"},
-                "fontSize": {"value": 15},
-                "opacity": 1,
-              }
-            }
-          },
-          {
-            "type": "text",     // total byte data text in enrichment box
-              "encode": {
-                "enter": {
-                  "baseline": {"value": "top"},
-                  "fill": {"value": "#159d8d"} // JCR, changd to match Malcolm color scheme
-                },
-                "update": {
-                  "x": {"value": -303},
-                  "y": {"value": 60},
-                  "text": {"signal": "byte_data"},
-                  "font": {"value": "Arial"},
-                  "fontSize": {"value": 15},
-                  "opacity": {"signal": "isArray(byte_data) ? 1 : 0" } // checks if byte_data is an array - if Array then text is an byte value and won't be [object Object] when opacity == 1
-                }
-              }
-          },
-          {
-          "type": "text",     // protocol text in enrichment box
-            "encode": {
-              "enter": {
-                "baseline": {"value": "top"},
-                "fill": {"value": "#159d8d"}, // JCR, changed to match Malcolm color scheme
-              },
-              "update": {
-                "x": {"signal": "isArray(tooltip3) ? -208 : -395"},
-                "y": {"signal": "isArray(tooltip3) ? 60 : 75"},
-                "text": {"signal": "isArray(tooltip3) ? tooltip3 : 'Hover over link for link enrichment.' "}, // checks if link enrichments is populated, if not display user instructions
+                "text": {"signal": "isArray(tooltip_rules) ? tooltip_rules : ['Search for a file name or node ID.', 'Hover over node for node enrichment.'] "}, // checks if node enrichments is populated, if not display user instructions
                 "font": {"value": "Arial"},
                 "fontSize": {"value": 15},
                 "opacity": 1,
@@ -1506,7 +1351,7 @@
                 "update": {
                   "x": {"value": -400},
                   "y": {"signal": "height-200"},
-                  "text": {"value": "IP address not found. Try adjusting the time range."},
+                  "text": {"value": "File not found. Try adjusting the time range."},
                   "font": {"value": "Arial"},
                   "fontStyle": {"value": "bold"},
                   "fontSize": {"signal": "titleFontSize"},
@@ -1571,8 +1416,16 @@
                 // Make collapsed nodes darker
                 "fill": [
                   {
-                    "test": "indata('collapsyNodes', 'identifier', datum.identifier)", // || device_data.ip == datum.dst",
+                    "test": "datum.enrichment[0].node === nodeID && ( indata('collapsyNodes', 'identifier', datum.identifier) || device_data.node === datum.enrichment[0].node )",
+                    "value": "#0f6e63"
+                  },
+                  {
+                    "test": "indata('collapsyNodes', 'identifier', datum.identifier) || device_data.node === datum.enrichment[0].node",
                     "signal": "rgb(rgb(scale('color', datum.depth)).r * 0.7, rgb(scale('color', datum.depth)).g * 0.7, rgb(scale('color', datum.depth)).b * 0.7)"
+                  },
+                  {
+                    "test": "datum.enrichment[0].node === nodeID",
+                    "value": "#159d8d"
                   },
                   {
                     "scale": "color",
@@ -1598,13 +1451,13 @@
             "encode": {
               "enter": {
                 "text": {
-                  "signal": "split(datum.identifier,'+')[1]"
+                  "signal": "datum.enrichment[0].file_name"
                 },
                 "fontSize": {"value": 15},
                 "font": {"value": "Arial"},
                 "baseline": {
                   "value": "middle"
-                }
+                },
               },
               "update": {
                 "x": {"signal": "scale('xscale', datum.x)" }, // x value is scaled to account for mouse behavior
@@ -1628,6 +1481,15 @@
                     "signal": "'left'"
                   }
                 ],
+                "fill": [
+                  {
+                    "test": "datum.enrichment[0].node === nodeID",
+                    "value": "#159d8d"
+                  },
+                  {
+                    "value": "white"    // dark background is always set
+                  }
+                ],
                 "opacity": 1
               },
               "hover": {
@@ -1640,35 +1502,35 @@
       ]
       }
     ],
-    "legends": [
-      {
-        "title": "Average Bytes",
-        "orient": "none",
-        "titleColor": { "value": "#159d8d" },
-        "labelColor": { "value": "#159d8d" },
-        // "fillColor": { "value": "#172430" }, // JCR, left empty for auto theme color
-        "padding": { "value": 5 },
-        "strokeDash": "dash_scale",
-        "symbolType": "stroke",
-        "symbolStrokeWidth": 3,
-        "symbolSize": 400,
-        "legendX": 0,
-        "legendY": { "signal": "legend_height + 150" },
+    // "legends": [
+    //   {
+    //     "title": "Average Bytes",
+    //     "orient": "none",
+    //     "titleColor": { "value": "#159d8d" },
+    //     "labelColor": { "value": "#159d8d" },
+    //     // "fillColor": { "value": "#172430" }, // JCR, left empty for auto theme color
+    //     "padding": { "value": 5 },
+    //     "strokeDash": "dash_scale",
+    //     "symbolType": "stroke",
+    //     "symbolStrokeWidth": 3,
+    //     "symbolSize": 400,
+    //     "legendX": 0,
+    //     "legendY": { "signal": "legend_height + 150" },
 
-        "encode": {
-          "symbols": {
-            "update": {
-              // "stroke": { "value": "#dfe5ef" },
-              "fillOpacity": { "value": 0 }
-            }
-          },
-          "title": {
-            "update": {
-              "fontSize": { "value": 14 }
-            }
-          },
-          "labels": { "update": { "fontSize": { "value": 14 } } }
-        }
-      }
-    ]
+    //     "encode": {
+    //       "symbols": {
+    //         "update": {
+    //           // "stroke": { "value": "#dfe5ef" },
+    //           "fillOpacity": { "value": 0 }
+    //         }
+    //       },
+    //       "title": {
+    //         "update": {
+    //           "fontSize": { "value": 14 }
+    //         }
+    //       },
+    //       "labels": { "update": { "fontSize": { "value": 14 } } }
+    //     }
+    //   }
+    // ]
   }
