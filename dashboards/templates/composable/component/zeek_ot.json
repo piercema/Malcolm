@@ -2747,6 +2747,1059 @@
                 }
               }
             },
+            "iec104_c_bo_na_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "bsi": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_bo_na_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "bsi": {
+                  "type": "long"
+                },
+                "qds_ov": {
+                  "type": "long"
+                },
+                "qds_bl": {
+                  "type": "long"
+                },
+                "qds_sb": {
+                  "type": "long"
+                },
+                "qds_nt": {
+                  "type": "long"
+                },
+                "qds_iv": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_bo_ta_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "bsi": {
+                  "type": "long"
+                },
+                "asdu_num": {
+                  "type": "long"
+                },
+                "bsi": {
+                  "type": "long"
+                },
+                "qds_ov": {
+                  "type": "long"
+                },
+                "qds_bl": {
+                  "type": "long"
+                },
+                "qds_sb": {
+                  "type": "long"
+                },
+                "qds_nt": {
+                  "type": "long"
+                },
+                "qds_iv": {
+                  "type": "long"
+                },
+                "cp24time2a_milli": {
+                  "type": "long"
+                },
+                "cp24time2a_min_mins": {
+                  "type": "long"
+                },
+                "cp24time2a_min_iv": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_bo_tb_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "bsi": {
+                  "type": "long"
+                },
+                "qds_ov": {
+                  "type": "long"
+                },
+                "qds_bl": {
+                  "type": "long"
+                },
+                "qds_sb": {
+                  "type": "long"
+                },
+                "qds_nt": {
+                  "type": "long"
+                },
+                "qds_iv": {
+                  "type": "long"
+                },
+                "cp56time2a_milli": {
+                  "type": "long"
+                },
+                "cp56time2a_minute_mins": {
+                  "type": "long"
+                },
+                "cp56time2a_minute_iv": {
+                  "type": "long"
+                },
+                "cp56time2a_hour_hours": {
+                  "type": "long"
+                },
+                "cp56time2a_hour_su": {
+                  "type": "long"
+                },
+                "cp56time2a_day_dow_day": {
+                  "type": "long"
+                },
+                "cp56time2a_day_dow_dow": {
+                  "type": "long"
+                },
+                "cp56time2a_mon": {
+                  "type": "long"
+                },
+                "cp56time2a_year": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_ei_na_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "coi_r": {
+                  "type": "long"
+                },
+                "coi_i": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_c_cs_na_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "cp56time2a_t_milli": {
+                  "type": "long"
+                },
+                "cp56time2a_t_minute_mins": {
+                  "type": "long"
+                },
+                "cp56time2a_t_minute_iv": {
+                  "type": "long"
+                },
+                "cp56time2a_t_hour_hours": {
+                  "type": "long"
+                },
+                "cp56time2a_t_hour_su": {
+                  "type": "long"
+                },
+                "cp56time2a_t_day_dow_day": {
+                  "type": "long"
+                },
+                "cp56time2a_t_day_dow_dow": {
+                  "type": "long"
+                },
+                "cp56time2a_t_mon": {
+                  "type": "long"
+                },
+                "cp56time2a_t_year": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_c_dc_na_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "dco_dco_on": {
+                  "type": "long"                
+                },
+                "dco_qu": {
+                  "type": "long"              
+                }, 
+                "dco_se": {
+                  "type": "long"              
+                }   
+              }
+            },
+            "iec104_m_dp_na_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "diq_dip": {
+                  "type": "long"
+                },
+                "diq_bl": {
+                  "type": "long"
+                },
+                "diq_sb": {
+                  "type": "long"
+                },
+                "diq_nt": {
+                  "type": "long"
+                },
+                "diq_iv": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_dp_ta_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "diq_dip": {
+                  "type": "long"
+                },
+                "diq_bl": {
+                  "type": "long"
+                },
+                "diq_sb": {
+                  "type": "long"
+                },
+                "diq_nt": {
+                  "type": "long"
+                },
+                "diq_iv": {
+                  "type": "long"
+                },
+                "cp24time2a_milli": {
+                  "type": "long"
+                },
+                "cp24time2a_minute_mins": {
+                  "type": "long"
+                },
+                "cp24time2a_minute_iv": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_dp_tb_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "info_obj_type": {
+                  "type": "long"
+                },
+                "diq_dpi": {
+                  "type": "long"
+                },
+                "diq_bl": {
+                  "type": "long"
+                },
+                "diq_sb": {
+                  "type": "long"
+                },
+                "diq_nt": {
+                  "type": "long"
+                },
+                "diq_iv": {
+                  "type": "long"
+                },
+                "cp56time2a_milli": {
+                  "type": "long"
+                },
+                "cp56time2a_minute_mins": {
+                  "type": "long"
+                },
+                "cp56time2a_minute_iv": {
+                  "type": "long"
+                },
+                "cp56time2a_hour_hours": {
+                  "type": "long"
+                },
+                "cp56time2a_hour_su": {
+                  "type": "long"
+                },
+                "cp56time2a_day_dow_day": {
+                  "type": "long"
+                },
+                "cp56time2a_day_dow_dow": {
+                  "type": "long"
+                },
+                "cp56time2a_mon": {
+                  "type": "long"
+                },
+                "cp56time2a_year": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_me_nc_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "value": {
+                  "type": "float"
+                },
+                "qds_ov": {
+                  "type": "long"
+                },
+                "qds_bl": {
+                  "type": "long"
+                },
+                "qds_sb": {
+                  "type": "long"
+                },
+                "qds_nt": {
+                  "type": "long"
+                },                
+                "qds_iv": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_me_tc_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "value": {
+                  "type": "long"
+                },
+                "qds_ov": {
+                  "type": "long"
+                },
+                "qds_bl": {
+                  "type": "long"
+                },
+                "qds_sb": {
+                  "type": "long"
+                },
+                "qds_nt": {
+                  "type": "long"
+                },
+                "qds_iv": {
+                  "type": "long"
+                },
+                "cp24time2a_milli": {
+                  "type": "long"
+                },
+                "cp24time2a_minute_mins": {
+                  "type": "long"
+                },
+                "cp24time2a_minute_iv": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_me_tf_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "value": {
+                  "type": "long"
+                },
+                "qds_ov": {
+                  "type": "long"
+                },
+                "qds_bl": {
+                  "type": "long"
+                },
+                "qds_sb": {
+                  "type": "long"
+                },
+                "qds_nt": {
+                  "type": "long"
+                },
+                "qds_iv": {
+                  "type": "long"
+                },
+                "cp56time2aP_milli": {
+                  "type": "long"
+                },
+                "cp56time2aP_minute_mins": {
+                  "type": "long"
+                },
+                "cp56time2aP_minute_iv": {
+                  "type": "long"
+                },
+                "cp56time2aP_hour_hours": {
+                  "type": "long"
+                },
+                "cp56time2aP_hour_su": {
+                  "type": "long"
+                },
+                "cp56time2aP_day_dow_day": {
+                  "type": "long"
+                },
+                "cp56time2aP_day_dow_dow": {
+                  "type": "long"
+                },
+                "cp56time2aP_mon": {
+                  "type": "long"
+                },
+                "cp56time2aP_year": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104": {
+              "properties": {
+                "apdu_len": {
+                  "type": "long"
+                },
+                "apci_type": {
+                  "type": "keyword"
+                },
+                "apci_tx": {
+                  "type": "long"
+                },
+                "apci_rx": {
+                  "type": "long"
+                },
+                "asdu_info_object_type": {
+                  "type": "keyword"
+                },
+                "asdu_seq": {
+                  "type": "long"
+                },
+                "asdu_num_ix": {
+                  "type": "long"
+                },
+                "asdu_cause_tx": {
+                  "type": "long"
+                },
+                "asdu_negative": {
+                  "type": "long"
+                },
+                "asdu_test": {
+                  "type": "long"
+                },
+                "asdu_originator_address": {
+                  "type": "long"
+                },
+                "asdu_common_address": {
+                  "type": "long"
+                },
+                "asdu_info_object_addr": { 
+                  "type": "keyword"
+                },
+                "asdu_interrogation_command": {
+                  "type": "keyword"
+                },
+                "asdu_single_point_information": {
+                  "type": "keyword"
+                },
+                "asdu_single_command": {
+                  "type": "keyword"
+                },
+                "asdu_double_command": {
+                  "type": "keyword"
+                },
+                "asdu_regulating_step_command": {
+                  "type": "keyword"
+                },
+                "asdu_bit_string_32_bit": {
+                  "type": "keyword"
+                },
+                "asdu_setpoint_command_scaled_value": {
+                  "type": "keyword"
+                },
+                "asdu_measured_value_scaled_value": {
+                  "type": "keyword"
+                },
+                "asdu_step_position_information": {
+                  "type": "keyword"
+                },
+                "asdu_single_point_information_CP56Time2a": {
+                  "type": "keyword"
+                },
+                "asdu_single_point_information_CP24Time2a": {
+                  "type": "keyword"
+                },
+                "asdu_clock_synchronization_command": {
+                  "type": "keyword"
+                },
+                "asdu_double_point_information": {
+                  "type": "keyword"
+                },
+                "asdu_double_point_information_CP56Time2a": {
+                  "type": "keyword"
+                },
+                "asdu_double_point_information_CP24Time2a": {
+                  "type": "keyword"
+                },             
+                "asdu_step_position_information_CP56Time2a": {
+                  "type": "keyword"
+                },
+                "asdu_step_position_information_CP24Time2a": {
+                  "type": "keyword"
+                },
+                "asdu_bit_string_32_bit_CP56Time2a": {
+                  "type": "keyword"
+                },
+                "asdu_bit_string_32_bit_CP24Time2a": {
+                  "type": "keyword"
+                },
+                "asdu_end_of_initialization": {
+                  "type": "keyword"
+                },
+                "asdu_measured_value_normalized_CP56Time2a": {
+                  "type": "keyword"
+                },
+                "asdu_measured_value_normalized_CP24Time2a": {
+                  "type": "keyword"
+                },
+                "asdu_measured_value_scaled_CP24Time2a": {
+                  "type": "keyword"
+                },
+                "asdu_measured_value_scaled_CP56Time2a": {
+                  "type": "keyword"
+                },
+                "asdu_measured_value_short_floating_point": {
+                  "type": "keyword"
+                },
+                "asdu_measured_value_short_floating_point_CP56Time2a": {
+                  "type": "keyword"
+                },
+                "asdu_measured_value_short_floating_point_CP24Time2a": {
+                  "type": "keyword"
+                },
+                "asdu_read_Command_client": {
+                  "type": "keyword"
+                },
+                "asdu_read_Command_server": {
+                  "type": "keyword"
+                },                
+                "asdu_qrp_client": {
+                  "type": "keyword"
+                },
+                "asdu_qrp_server": {
+                  "type": "keyword"
+                },
+                "asdu_uid": {
+                  "type": "keyword"
+                },
+                "request": {
+                  "type": "keyword"
+                },
+                "reply": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "iec104_m_me_ta_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "nva": {
+                  "type": "long"
+                },
+                "qds_ov": {
+                  "type": "long"
+                },
+                "qds_bl": {
+                  "type": "long"
+                },
+                "qds_sb": {
+                  "type": "long"
+                },
+                "qds_nt": {
+                  "type": "long"
+                },
+                "qds_iv": {
+                  "type": "long"
+                },
+                "cp24time2a_milli": {
+                  "type": "long"
+                },
+                "cp24time2a_minute_mins": {
+                  "type": "long"
+                },
+                "cp24time2a_minute_iv": {
+                  "type": "long"  
+                }
+              }
+            },
+            "iec104_m_me_td_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "nva": {
+                  "type": "long"
+                },
+                "qds_ov": {
+                  "type": "long"
+                },
+                "qds_bl": {
+                  "type": "long"
+                },
+                "qds_sb": {
+                  "type": "long"
+                },
+                "qds_nt": {
+                  "type": "long"
+                },
+                "qds_iv": {
+                  "type": "long"
+                },
+                "cp56time2a_milli": {
+                  "type": "long"
+                },
+                "cp56time2a_minute_mins": {
+                  "type": "long"
+                },
+                "cp56time2a_minute_iv": {
+                  "type": "long"
+                },
+                "cp56time2a_hour_hours": {
+                  "type": "long"
+                },
+                "cp56time2a_hour_su": {
+                  "type": "long"
+                },
+                "cp56time2a_day_dow_day": {
+                  "type": "long"
+                },
+                "cp56time2a_day_dow_dow": {
+                  "type": "long"
+                },
+                "cp56time2a_mon": {
+                  "type": "long"
+                },
+                "cp56time2a_year": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_c_ic_na_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "qoi": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_c_rp_nc_1_qrp_client": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "raw_data": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "iec104_c_rp_nc_1_qrp_server": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_c_rc_na": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "rco_up_down": {
+                  "type": "long"
+                },
+                "rco_qu": {
+                  "type": "long"
+                },
+                "rco_se": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_c_rd_na_1_read_command_client": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "raw_data": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "iec104_c_rd_na_1_read_command_server": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_c_sc_na_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "sco_on": {
+                  "type": "long"
+                },
+                "sco_qu": {
+                  "type": "long"
+                },
+                "sco_se": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_sp_na_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "siq_spi": {
+                  "type": "long"
+                },
+                "siq_bl": {
+                  "type": "long"
+                },
+                "siq_sv": {
+                  "type": "long"
+                },
+                "siq_nt": {
+                  "type": "long"
+                },
+                "siq_iv": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_sp_ta_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "siq_spi": {
+                  "type": "long"
+                },
+                "siq_bl": {
+                  "type": "long"
+                },
+                "siq_sv": {
+                  "type": "long"
+                },
+                "siq_nt": {
+                  "type": "long"
+                },
+                "siq_iv": {
+                  "type": "long"
+                },
+                "cp24time2a_milli": {
+                  "type": "long"
+                },
+                "cp24time2a_minute_mins": {
+                  "type": "long"
+                },
+                "cp24time2a_minute_iv": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_sp_tb_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "siq_spi": {
+                  "type": "long"
+                },
+                "siq_bl": {
+                  "type": "long"
+                },
+                "siq_sv": {
+                  "type": "long"
+                },
+                "siq_nt": {
+                  "type": "long"
+                },
+                "siq_iv": {
+                  "type": "long"
+                },
+                "cp56time2a_milli": {
+                  "type": "long"
+                },
+                "cp56time2a_minute_mins": {
+                  "type": "long"
+                },
+                "cp56time2a_minute_iv": {
+                  "type": "long"
+                },
+                "cp56time2a_hour_hours": {
+                  "type": "long"
+                },
+                "cp56time2a_hour_su": {
+                  "type": "long"
+                },
+                "cp56time2a_day_dow_day": {
+                  "type": "long"
+                },
+                "cp56time2a_day_dow_dow": {
+                  "type": "long"
+                },
+                "cp56time2a_mon": {
+                  "type": "long"
+                },
+                "cp56time2a_year": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_me_nb_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "sva": {
+                  "type": "long"
+                },
+                "qds_ov": {
+                  "type": "long"
+                },
+                "qds_bl": {
+                  "type": "long"
+                },
+                "qds_sb": {
+                  "type": "long"
+                },
+                "qds_nt": {
+                  "type": "long"
+                },
+                "qds_iv": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_me_tb_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "sva": {
+                  "type": "long"
+                },
+                "qds_ov": {
+                  "type": "long"
+                },
+                "qds_bl": {
+                  "type": "long"
+                },
+                "qds_sb": {
+                  "type": "long"
+                },
+                "qds_nt": {
+                  "type": "long"
+                },
+                "qds_iv": {
+                  "type": "long"
+                },
+                "cp24time2a_milli": {
+                  "type": "long"
+                },
+                "cp24time2a_minute_mins": {
+                  "type": "long"
+                },
+                "cp24time2a_minute_iv": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_me_te_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "sva": {
+                  "type": "long"
+                },
+                "qds_ov": {
+                  "type": "long"
+                },
+                "qds_bl": {
+                  "type": "long"
+                },
+                "qds_sb": {
+                  "type": "long"
+                },
+                "qds_nt": {
+                  "type": "long"
+                },
+                "qds_iv": {
+                  "type": "long"
+                },
+                "cp56time2a_milli": {
+                  "type": "long"
+                },
+                "cp56time2a_minute_mins": {
+                  "type": "long"
+                },
+                "cp56time2a_minute_iv": {
+                  "type": "long"
+                },
+                "cp56time2a_hour_hours": {
+                  "type": "long"
+                },
+                "cp56time2a_hour_su": {
+                  "type": "long"
+                },
+                "cp56time2a_day_dow_day": {
+                  "type": "long"
+                },
+                "cp56time2a_day_dow_dow": {
+                  "type": "long"
+                },
+                "cp56time2a_mon": {
+                  "type": "long"
+                },
+                "cp56time2a_year": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_c_se_nb_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "sva": {
+                  "type": "long"
+                },
+                "qos_ql": {
+                  "type": "keyword"
+                },
+                "qos_se": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "iec104_m_st_na_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "value": {
+                  "type": "keyword"
+                },
+                "qds_ov": {
+                  "type": "long"
+                },
+                "qds_bl": {
+                  "type": "long"
+                },
+                "qds_sb": {
+                  "type": "long"
+                },
+                "qds_nt": {
+                  "type": "long"
+                },
+                "qds_iv": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_st_ta_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "value": {
+                  "type": "keyword"
+                },
+                "qds_ov": {
+                  "type": "long"
+                },
+                "qds_bl": {
+                  "type": "long"
+                },
+                "qds_sb": {
+                  "type": "long"
+                },
+                "qds_nt": {
+                  "type": "long"
+                },
+                "qds_iv": {
+                  "type": "long"
+                },
+                "cp24time2a_milli": {
+                  "type": "long"
+                },
+                "cp24time2a_minute_mins": {
+                  "type": "long"
+                },
+                "cp24time2a_minute_iv": {
+                  "type": "long"
+                }
+              }
+            },
+            "iec104_m_st_tb_1": {
+              "properties": {
+                "asdu_num": {
+                  "type": "long"
+                },
+                "value": {
+                  "type": "keyword"
+                },
+                "qds_ov": {
+                  "type": "long"
+                },
+                "qds_bl": {
+                  "type": "long"
+                },
+                "qds_sb": {
+                  "type": "long"
+                },
+                "qds_nt": {
+                  "type": "long"
+                },
+                "qds_iv": {
+                  "type": "long"
+                },
+                "cp56time2a_milli": {
+                  "type": "long"
+                },
+                "cp56time2a_minute_mins": {
+                  "type": "long"
+                },
+                "cp56time2a_minute_iv": {
+                  "type": "long"
+                },
+                "cp56time2a_hour_hours": {
+                  "type": "long"
+                },
+                "cp56time2a_hour_su": {
+                  "type": "long"
+                },
+                "cp56time2a_day_dow_day": {
+                  "type": "long"
+                },
+                "cp56time2a_day_dow_dow": {
+                  "type": "long"
+                },
+                "cp56time2a_mon": {
+                  "type": "long"
+                },
+                "cp56time2a_year": {
+                  "type": "long"
+                }
+              }
+            },
             "ge_srtp": {
               "properties": {
                 "srtp_type": {
