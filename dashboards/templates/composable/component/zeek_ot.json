@@ -2790,12 +2790,6 @@
                 "bsi": {
                   "type": "long"
                 },
-                "asdu_num": {
-                  "type": "long"
-                },
-                "bsi": {
-                  "type": "long"
-                },
                 "qds_ov": {
                   "type": "long"
                 },
