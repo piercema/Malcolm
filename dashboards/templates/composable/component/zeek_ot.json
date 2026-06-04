@@ -3168,10 +3168,10 @@
                   "type": "long"
                 },
                 "asdu.num_ix": {
-                  "type": "long"
+                  "type": "keyword"
                 },
                 "asdu.cause_tx": {
-                  "type": "long"
+                  "type": "keyword"
                 },
                 "asdu.negative": {
                   "type": "long"
