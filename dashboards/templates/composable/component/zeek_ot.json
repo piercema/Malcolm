@@ -2765,19 +2765,19 @@
                 "bsi": {
                   "type": "long"
                 },
-                "qds_ov": {
+                "qds.ov": {
                   "type": "long"
                 },
-                "qds_bl": {
+                "qds.bl": {
                   "type": "long"
                 },
-                "qds_sb": {
+                "qds.sb": {
                   "type": "long"
                 },
-                "qds_nt": {
+                "qds.nt": {
                   "type": "long"
                 },
-                "qds_iv": {
+                "qds.iv": {
                   "type": "long"
                 }
               }
@@ -2790,28 +2790,28 @@
                 "bsi": {
                   "type": "long"
                 },
-                "qds_ov": {
+                "qds.ov": {
                   "type": "long"
                 },
-                "qds_bl": {
+                "qds.bl": {
                   "type": "long"
                 },
-                "qds_sb": {
+                "qds.sb": {
                   "type": "long"
                 },
-                "qds_nt": {
+                "qds.nt": {
                   "type": "long"
                 },
-                "qds_iv": {
+                "qds.iv": {
                   "type": "long"
                 },
-                "cp24time2a_milli": {
+                "cp24time2a.milli": {
                   "type": "long"
                 },
-                "cp24time2a_min_mins": {
+                "cp24time2a.min.mins": {
                   "type": "long"
                 },
-                "cp24time2a_min_iv": {
+                "cp24time2a.min.iv": {
                   "type": "long"
                 }
               }
@@ -2824,46 +2824,46 @@
                 "bsi": {
                   "type": "long"
                 },
-                "qds_ov": {
+                "qds.ov": {
                   "type": "long"
                 },
-                "qds_bl": {
+                "qds.bl": {
                   "type": "long"
                 },
-                "qds_sb": {
+                "qds.sb": {
                   "type": "long"
                 },
-                "qds_nt": {
+                "qds.nt": {
                   "type": "long"
                 },
-                "qds_iv": {
+                "qds.iv": {
                   "type": "long"
                 },
-                "cp56time2a_milli": {
+                "cp56time2a.milli": {
                   "type": "long"
                 },
-                "cp56time2a_minute_mins": {
+                "cp56time2a.minute.mins": {
                   "type": "long"
                 },
-                "cp56time2a_minute_iv": {
+                "cp56time2a.minute.iv": {
                   "type": "long"
                 },
-                "cp56time2a_hour_hours": {
+                "cp56time2a.hour.hours": {
                   "type": "long"
                 },
-                "cp56time2a_hour_su": {
+                "cp56time2a.hour.su": {
                   "type": "long"
                 },
-                "cp56time2a_day_dow_day": {
+                "cp56time2a.day_dow.day": {
                   "type": "long"
                 },
-                "cp56time2a_day_dow_dow": {
+                "cp56time2a.day_dow.day_of_week": {
                   "type": "long"
                 },
-                "cp56time2a_mon": {
+                "cp56time2a.mon": {
                   "type": "long"
                 },
-                "cp56time2a_year": {
+                "cp56time2a.year": {
                   "type": "long"
                 }
               }
@@ -2873,10 +2873,10 @@
                 "asdu_num": {
                   "type": "long"
                 },
-                "coi_r": {
+                "coi.r": {
                   "type": "long"
                 },
-                "coi_i": {
+                "coi.i": {
                   "type": "long"
                 }
               }
@@ -2886,31 +2886,31 @@
                 "asdu_num": {
                   "type": "long"
                 },
-                "cp56time2a_t_milli": {
+                "cp56time2a_t.milli": {
                   "type": "long"
                 },
-                "cp56time2a_t_minute_mins": {
+                "cp56time2a_t.minute.mins": {
                   "type": "long"
                 },
-                "cp56time2a_t_minute_iv": {
+                "cp56time2a_t.minute.iv": {
                   "type": "long"
                 },
-                "cp56time2a_t_hour_hours": {
+                "cp56time2a_t.hour.hours": {
                   "type": "long"
                 },
-                "cp56time2a_t_hour_su": {
+                "cp56time2a_t.hour.su": {
                   "type": "long"
                 },
-                "cp56time2a_t_day_dow_day": {
+                "cp56time2a_t.day_dow.day": {
                   "type": "long"
                 },
-                "cp56time2a_t_day_dow_dow": {
+                "cp56time2a_t.day_dow.day_of_week": {
                   "type": "long"
                 },
                 "cp56time2a_t_mon": {
                   "type": "long"
                 },
-                "cp56time2a_t_year": {
+                "cp56time2a_t.year": {
                   "type": "long"
                 }
               }
@@ -2920,13 +2920,13 @@
                 "asdu_num": {
                   "type": "long"
                 },
-                "dco_dco_on": {
+                "dco_dco.on": {
                   "type": "long"                
                 },
-                "dco_qu": {
+                "dco.qu": {
                   "type": "long"              
                 }, 
-                "dco_se": {
+                "dco.se": {
                   "type": "long"              
                 }   
               }
@@ -2939,16 +2939,16 @@
                 "diq_dip": {
                   "type": "long"
                 },
-                "diq_bl": {
+                "diq.bl": {
                   "type": "long"
                 },
-                "diq_sb": {
+                "di.sb": {
                   "type": "long"
                 },
-                "diq_nt": {
+                "diq.nt": {
                   "type": "long"
                 },
-                "diq_iv": {
+                "diq.iv": {
                   "type": "long"
                 }
               }
@@ -2961,25 +2961,25 @@
                 "diq_dip": {
                   "type": "long"
                 },
-                "diq_bl": {
+                "diq.bl": {
                   "type": "long"
                 },
-                "diq_sb": {
+                "di.sb": {
                   "type": "long"
                 },
-                "diq_nt": {
+                "diq.nt": {
                   "type": "long"
                 },
-                "diq_iv": {
+                "diq.iv": {
                   "type": "long"
                 },
-                "cp24time2a_milli": {
+                "cp24time2a.milli": {
                   "type": "long"
                 },
-                "cp24time2a_minute_mins": {
+                "cp24time2a.minute.mins": {
                   "type": "long"
                 },
-                "cp24time2a_minute_iv": {
+                "cp24time2a.minute.iv": {
                   "type": "long"
                 }
               }
@@ -2992,46 +2992,46 @@
                 "info_obj_type": {
                   "type": "long"
                 },
-                "diq_dpi": {
+                "diq.dpi": {
                   "type": "long"
                 },
-                "diq_bl": {
+                "diq.bl": {
                   "type": "long"
                 },
-                "diq_sb": {
+                "di.sb": {
                   "type": "long"
                 },
-                "diq_nt": {
+                "diq.nt": {
                   "type": "long"
                 },
-                "diq_iv": {
+                "diq.iv": {
                   "type": "long"
                 },
-                "cp56time2a_milli": {
+                "cp56time2a.milli": {
                   "type": "long"
                 },
-                "cp56time2a_minute_mins": {
+                "cp56time2a.minute.mins": {
                   "type": "long"
                 },
-                "cp56time2a_minute_iv": {
+                "cp56time2a.minute.iv": {
                   "type": "long"
                 },
-                "cp56time2a_hour_hours": {
+                "cp56time2a.hour.hours": {
                   "type": "long"
                 },
-                "cp56time2a_hour_su": {
+                "cp56time2a.hour.su": {
                   "type": "long"
                 },
-                "cp56time2a_day_dow_day": {
+                "cp56time2a.day_dow.day": {
                   "type": "long"
                 },
-                "cp56time2a_day_dow_dow": {
+                "cp56time2a.day_dow.day_of_week": {
                   "type": "long"
                 },
-                "cp56time2a_mon": {
+                "cp56time2a.mon": {
                   "type": "long"
                 },
-                "cp56time2a_year": {
+                "cp56time2a.year": {
                   "type": "long"
                 }
               }
@@ -3044,19 +3044,19 @@
                 "value": {
                   "type": "float"
                 },
-                "qds_ov": {
+                "qds.ov": {
                   "type": "long"
                 },
-                "qds_bl": {
+                "qds.bl": {
                   "type": "long"
                 },
-                "qds_sb": {
+                "qds.sb": {
                   "type": "long"
                 },
-                "qds_nt": {
+                "qds.nt": {
                   "type": "long"
                 },                
-                "qds_iv": {
+                "qds.iv": {
                   "type": "long"
                 }
               }
@@ -3069,28 +3069,28 @@
                 "value": {
                   "type": "long"
                 },
-                "qds_ov": {
+                "qds.ov": {
                   "type": "long"
                 },
-                "qds_bl": {
+                "qds.bl": {
                   "type": "long"
                 },
-                "qds_sb": {
+                "qds.sb": {
                   "type": "long"
                 },
-                "qds_nt": {
+                "qds.nt": {
                   "type": "long"
                 },
-                "qds_iv": {
+                "qds.iv": {
                   "type": "long"
                 },
-                "cp24time2a_milli": {
+                "cp24time2a.milli": {
                   "type": "long"
                 },
-                "cp24time2a_minute_mins": {
+                "cp24time2a.minute.mins": {
                   "type": "long"
                 },
-                "cp24time2a_minute_iv": {
+                "cp24time2a.minute.iv": {
                   "type": "long"
                 }
               }
@@ -3103,34 +3103,34 @@
                 "value": {
                   "type": "long"
                 },
-                "qds_ov": {
+                "qds.ov": {
                   "type": "long"
                 },
-                "qds_bl": {
+                "qds.bl": {
                   "type": "long"
                 },
-                "qds_sb": {
+                "qds.sb": {
                   "type": "long"
                 },
-                "qds_nt": {
+                "qds.nt": {
                   "type": "long"
                 },
-                "qds_iv": {
+                "qds.iv": {
                   "type": "long"
                 },
                 "cp56time2aP_milli": {
                   "type": "long"
                 },
-                "cp56time2aP_minute_mins": {
+                "cp56time2aP_minute.mins": {
                   "type": "long"
                 },
-                "cp56time2aP_minute_iv": {
+                "cp56time2aP_minute.iv": {
                   "type": "long"
                 },
-                "cp56time2aP_hour_hours": {
+                "cp56time2aP_hour.hours": {
                   "type": "long"
                 },
-                "cp56time2aP_hour_su": {
+                "cp56time2aP_hour.su": {
                   "type": "long"
                 },
                 "cp56time2aP_day_dow_day": {
@@ -3161,124 +3161,124 @@
                 "apci_rx": {
                   "type": "long"
                 },
-                "asdu_info_object_type": {
+                "asdu.info_object_type": {
                   "type": "keyword"
                 },
-                "asdu_seq": {
+                "asdu.seq": {
                   "type": "long"
                 },
-                "asdu_num_ix": {
+                "asdu.num_ix": {
                   "type": "long"
                 },
-                "asdu_cause_tx": {
+                "asdu.cause_tx": {
                   "type": "long"
                 },
-                "asdu_negative": {
+                "asdu.negative": {
                   "type": "long"
                 },
-                "asdu_test": {
+                "asdu.test": {
                   "type": "long"
                 },
-                "asdu_originator_address": {
+                "asdu.originator_address": {
                   "type": "long"
                 },
-                "asdu_common_address": {
+                "asdu.common_address": {
                   "type": "long"
                 },
-                "asdu_info_object_addr": { 
+                "asdu.info_object_addr": { 
                   "type": "keyword"
                 },
-                "asdu_interrogation_command": {
+                "asdu.interrogation_command": {
                   "type": "keyword"
                 },
-                "asdu_single_point_information": {
+                "asdu.single_point_information": {
                   "type": "keyword"
                 },
-                "asdu_single_command": {
+                "asdu.single_command": {
                   "type": "keyword"
                 },
-                "asdu_double_command": {
+                "asdu.double_command": {
                   "type": "keyword"
                 },
-                "asdu_regulating_step_command": {
+                "asdu.regulating_step_command": {
                   "type": "keyword"
                 },
-                "asdu_bit_string_32_bit": {
+                "asdu.bit_string_32_bit": {
                   "type": "keyword"
                 },
-                "asdu_setpoint_command_scaled_value": {
+                "asdu.setpoint_command_scaled_value": {
                   "type": "keyword"
                 },
-                "asdu_measured_value_scaled_value": {
+                "asdu.measured_value_scaled_value": {
                   "type": "keyword"
                 },
-                "asdu_step_position_information": {
+                "asdu.step_position_information": {
                   "type": "keyword"
                 },
-                "asdu_single_point_information_CP56Time2a": {
+                "asdu.single_point_information_CP56Time2a": {
                   "type": "keyword"
                 },
-                "asdu_single_point_information_CP24Time2a": {
+                "asdu.single_point_information_CP24Time2a": {
                   "type": "keyword"
                 },
-                "asdu_clock_synchronization_command": {
+                "asdu.clock_synchronization_command": {
                   "type": "keyword"
                 },
-                "asdu_double_point_information": {
+                "asdu.double_point_information": {
                   "type": "keyword"
                 },
-                "asdu_double_point_information_CP56Time2a": {
+                "asdu.double_point_information_CP56Time2a": {
                   "type": "keyword"
                 },
-                "asdu_double_point_information_CP24Time2a": {
+                "asdu.double_point_information_CP24Time2a": {
                   "type": "keyword"
                 },             
-                "asdu_step_position_information_CP56Time2a": {
+                "asdu.step_position_information_CP56Time2a": {
                   "type": "keyword"
                 },
-                "asdu_step_position_information_CP24Time2a": {
+                "asdu.step_position_information_CP24Time2a": {
                   "type": "keyword"
                 },
-                "asdu_bit_string_32_bit_CP56Time2a": {
+                "asdu.bit_string_32_bit_CP56Time2a": {
                   "type": "keyword"
                 },
-                "asdu_bit_string_32_bit_CP24Time2a": {
+                "asdu.bit_string_32_bit_CP24Time2a": {
                   "type": "keyword"
                 },
-                "asdu_end_of_initialization": {
+                "asdu.end_of_initialization": {
                   "type": "keyword"
                 },
-                "asdu_measured_value_normalized_CP56Time2a": {
+                "asdu.measured_value_normalized_CP56Time2a": {
                   "type": "keyword"
                 },
                 "asdu_measured_value_normalized_CP24Time2a": {
                   "type": "keyword"
                 },
-                "asdu_measured_value_scaled_CP24Time2a": {
+                "asdu.measured_value_scaled_CP24Time2a": {
                   "type": "keyword"
                 },
-                "asdu_measured_value_scaled_CP56Time2a": {
+                "asdu.measured_value_scaled_CP56Time2a": {
                   "type": "keyword"
                 },
                 "asdu_measured_value_short_floating_point": {
                   "type": "keyword"
                 },
-                "asdu_measured_value_short_floating_point_CP56Time2a": {
+                "asdu.measured_value_short_floating_point_CP56Time2a": {
                   "type": "keyword"
                 },
                 "asdu_measured_value_short_floating_point_CP24Time2a": {
                   "type": "keyword"
                 },
-                "asdu_read_Command_client": {
+                "asdu.read_command_client": {
                   "type": "keyword"
                 },
-                "asdu_read_Command_server": {
+                "asdu.read_command_server": {
                   "type": "keyword"
                 },                
-                "asdu_qrp_client": {
+                "asdu.qrp_client": {
                   "type": "keyword"
                 },
-                "asdu_qrp_server": {
+                "asdu.qrp_server": {
                   "type": "keyword"
                 },
                 "asdu_uid": {
@@ -3300,28 +3300,28 @@
                 "nva": {
                   "type": "long"
                 },
-                "qds_ov": {
+                "qds.ov": {
                   "type": "long"
                 },
-                "qds_bl": {
+                "qds.bl": {
                   "type": "long"
                 },
-                "qds_sb": {
+                "qds.sb": {
                   "type": "long"
                 },
-                "qds_nt": {
+                "qds.nt": {
                   "type": "long"
                 },
-                "qds_iv": {
+                "qds.iv": {
                   "type": "long"
                 },
-                "cp24time2a_milli": {
+                "cp24time2a.milli": {
                   "type": "long"
                 },
-                "cp24time2a_minute_mins": {
+                "cp24time2a.minute.mins": {
                   "type": "long"
                 },
-                "cp24time2a_minute_iv": {
+                "cp24time2a.minute.iv": {
                   "type": "long"  
                 }
               }
@@ -3334,46 +3334,46 @@
                 "nva": {
                   "type": "long"
                 },
-                "qds_ov": {
+                "qds.ov": {
                   "type": "long"
                 },
-                "qds_bl": {
+                "qds.bl": {
                   "type": "long"
                 },
-                "qds_sb": {
+                "qds.sb": {
                   "type": "long"
                 },
-                "qds_nt": {
+                "qds.nt": {
                   "type": "long"
                 },
-                "qds_iv": {
+                "qds.iv": {
                   "type": "long"
                 },
-                "cp56time2a_milli": {
+                "cp56time2a.milli": {
                   "type": "long"
                 },
-                "cp56time2a_minute_mins": {
+                "cp56time2a.minute.mins": {
                   "type": "long"
                 },
-                "cp56time2a_minute_iv": {
+                "cp56time2a.minute.iv": {
                   "type": "long"
                 },
-                "cp56time2a_hour_hours": {
+                "cp56time2a.hour.hours": {
                   "type": "long"
                 },
-                "cp56time2a_hour_su": {
+                "cp56time2a.hour.su": {
                   "type": "long"
                 },
-                "cp56time2a_day_dow_day": {
+                "cp56time2a.day_dow.day": {
                   "type": "long"
                 },
-                "cp56time2a_day_dow_dow": {
+                "cp56time2a.day_dow.day_of_week": {
                   "type": "long"
                 },
-                "cp56time2a_mon": {
+                "cp56time2a.mon": {
                   "type": "long"
                 },
-                "cp56time2a_year": {
+                "cp56time2a.year": {
                   "type": "long"
                 }
               }
@@ -3410,13 +3410,13 @@
                 "asdu_num": {
                   "type": "long"
                 },
-                "rco_up_down": {
+                "rco.up_down": {
                   "type": "long"
                 },
-                "rco_qu": {
+                "rco.qu": {
                   "type": "long"
                 },
-                "rco_se": {
+                "rco.se": {
                   "type": "long"
                 }
               }
@@ -3443,13 +3443,13 @@
                 "asdu_num": {
                   "type": "long"
                 },
-                "sco_on": {
+                "sco.on": {
                   "type": "long"
                 },
-                "sco_qu": {
+                "sco.qu": {
                   "type": "long"
                 },
-                "sco_se": {
+                "sco.se": {
                   "type": "long"
                 }
               }
@@ -3459,19 +3459,19 @@
                 "asdu_num": {
                   "type": "long"
                 },
-                "siq_spi": {
+                "siq.spi": {
                   "type": "long"
                 },
-                "siq_bl": {
+                "siq.bl": {
                   "type": "long"
                 },
-                "siq_sv": {
+                "siq.sv": {
                   "type": "long"
                 },
-                "siq_nt": {
+                "siq.nt": {
                   "type": "long"
                 },
-                "siq_iv": {
+                "siq.iv": {
                   "type": "long"
                 }
               }
@@ -3481,28 +3481,28 @@
                 "asdu_num": {
                   "type": "long"
                 },
-                "siq_spi": {
+                "siq.spi": {
                   "type": "long"
                 },
-                "siq_bl": {
+                "siq.bl": {
                   "type": "long"
                 },
-                "siq_sv": {
+                "siq.sv": {
                   "type": "long"
                 },
-                "siq_nt": {
+                "siq.nt": {
                   "type": "long"
                 },
-                "siq_iv": {
+                "siq.iv": {
                   "type": "long"
                 },
-                "cp24time2a_milli": {
+                "cp24time2a.milli": {
                   "type": "long"
                 },
-                "cp24time2a_minute_mins": {
+                "cp24time2a.minute.mins": {
                   "type": "long"
                 },
-                "cp24time2a_minute_iv": {
+                "cp24time2a.minute.iv": {
                   "type": "long"
                 }
               }
@@ -3512,46 +3512,46 @@
                 "asdu_num": {
                   "type": "long"
                 },
-                "siq_spi": {
+                "siq.spi": {
                   "type": "long"
                 },
-                "siq_bl": {
+                "siq.bl": {
                   "type": "long"
                 },
-                "siq_sv": {
+                "siq.sv": {
                   "type": "long"
                 },
-                "siq_nt": {
+                "siq.nt": {
                   "type": "long"
                 },
-                "siq_iv": {
+                "siq.iv": {
                   "type": "long"
                 },
-                "cp56time2a_milli": {
+                "cp56time2a.milli": {
                   "type": "long"
                 },
-                "cp56time2a_minute_mins": {
+                "cp56time2a.minute.mins": {
                   "type": "long"
                 },
-                "cp56time2a_minute_iv": {
+                "cp56time2a.minute.iv": {
                   "type": "long"
                 },
-                "cp56time2a_hour_hours": {
+                "cp56time2a.hour.hours": {
                   "type": "long"
                 },
-                "cp56time2a_hour_su": {
+                "cp56time2a.hour.su": {
                   "type": "long"
                 },
-                "cp56time2a_day_dow_day": {
+                "cp56time2a.day_dow.day": {
                   "type": "long"
                 },
-                "cp56time2a_day_dow_dow": {
+                "cp56time2a.day_dow.day_of_week": {
                   "type": "long"
                 },
-                "cp56time2a_mon": {
+                "cp56time2a.mon": {
                   "type": "long"
                 },
-                "cp56time2a_year": {
+                "cp56time2a.year": {
                   "type": "long"
                 }
               }
@@ -3564,19 +3564,19 @@
                 "sva": {
                   "type": "long"
                 },
-                "qds_ov": {
+                "qds.ov": {
                   "type": "long"
                 },
-                "qds_bl": {
+                "qds.bl": {
                   "type": "long"
                 },
-                "qds_sb": {
+                "qds.sb": {
                   "type": "long"
                 },
-                "qds_nt": {
+                "qds.nt": {
                   "type": "long"
                 },
-                "qds_iv": {
+                "qds.iv": {
                   "type": "long"
                 }
               }
@@ -3589,28 +3589,28 @@
                 "sva": {
                   "type": "long"
                 },
-                "qds_ov": {
+                "qds.ov": {
                   "type": "long"
                 },
-                "qds_bl": {
+                "qds.bl": {
                   "type": "long"
                 },
-                "qds_sb": {
+                "qds.sb": {
                   "type": "long"
                 },
-                "qds_nt": {
+                "qds.nt": {
                   "type": "long"
                 },
-                "qds_iv": {
+                "qds.iv": {
                   "type": "long"
                 },
-                "cp24time2a_milli": {
+                "cp24time2a.milli": {
                   "type": "long"
                 },
-                "cp24time2a_minute_mins": {
+                "cp24time2a.minute.mins": {
                   "type": "long"
                 },
-                "cp24time2a_minute_iv": {
+                "cp24time2a.minute.iv": {
                   "type": "long"
                 }
               }
@@ -3623,46 +3623,46 @@
                 "sva": {
                   "type": "long"
                 },
-                "qds_ov": {
+                "qds.ov": {
                   "type": "long"
                 },
-                "qds_bl": {
+                "qds.bl": {
                   "type": "long"
                 },
-                "qds_sb": {
+                "qds.sb": {
                   "type": "long"
                 },
-                "qds_nt": {
+                "qds.nt": {
                   "type": "long"
                 },
-                "qds_iv": {
+                "qds.iv": {
                   "type": "long"
                 },
-                "cp56time2a_milli": {
+                "cp56time2a.milli": {
                   "type": "long"
                 },
-                "cp56time2a_minute_mins": {
+                "cp56time2a.minute.mins": {
                   "type": "long"
                 },
-                "cp56time2a_minute_iv": {
+                "cp56time2a.minute.iv": {
                   "type": "long"
                 },
-                "cp56time2a_hour_hours": {
+                "cp56time2a.hour.hours": {
                   "type": "long"
                 },
-                "cp56time2a_hour_su": {
+                "cp56time2a.hour.su": {
                   "type": "long"
                 },
-                "cp56time2a_day_dow_day": {
+                "cp56time2a.day_dow.day": {
                   "type": "long"
                 },
-                "cp56time2a_day_dow_dow": {
+                "cp56time2a.day_dow.day_of_week": {
                   "type": "long"
                 },
-                "cp56time2a_mon": {
+                "cp56time2a.mon": {
                   "type": "long"
                 },
-                "cp56time2a_year": {
+                "cp56time2a.year": {
                   "type": "long"
                 }
               }
@@ -3675,10 +3675,10 @@
                 "sva": {
                   "type": "long"
                 },
-                "qos_ql": {
+                "qos.ql": {
                   "type": "keyword"
                 },
-                "qos_se": {
+                "qos.se": {
                   "type": "keyword"
                 }
               }
@@ -3691,19 +3691,19 @@
                 "value": {
                   "type": "keyword"
                 },
-                "qds_ov": {
+                "qds.ov": {
                   "type": "long"
                 },
-                "qds_bl": {
+                "qds.bl": {
                   "type": "long"
                 },
-                "qds_sb": {
+                "qds.sb": {
                   "type": "long"
                 },
-                "qds_nt": {
+                "qds.nt": {
                   "type": "long"
                 },
-                "qds_iv": {
+                "qds.iv": {
                   "type": "long"
                 }
               }
@@ -3716,28 +3716,28 @@
                 "value": {
                   "type": "keyword"
                 },
-                "qds_ov": {
+                "qds.ov": {
                   "type": "long"
                 },
-                "qds_bl": {
+                "qds.bl": {
                   "type": "long"
                 },
-                "qds_sb": {
+                "qds.sb": {
                   "type": "long"
                 },
-                "qds_nt": {
+                "qds.nt": {
                   "type": "long"
                 },
-                "qds_iv": {
+                "qds.iv": {
                   "type": "long"
                 },
-                "cp24time2a_milli": {
+                "cp24time2a.milli": {
                   "type": "long"
                 },
-                "cp24time2a_minute_mins": {
+                "cp24time2a.minute.mins": {
                   "type": "long"
                 },
-                "cp24time2a_minute_iv": {
+                "cp24time2a.minute.iv": {
                   "type": "long"
                 }
               }
@@ -3750,46 +3750,46 @@
                 "value": {
                   "type": "keyword"
                 },
-                "qds_ov": {
+                "qds.ov": {
                   "type": "long"
                 },
-                "qds_bl": {
+                "qds.bl": {
                   "type": "long"
                 },
-                "qds_sb": {
+                "qds.sb": {
                   "type": "long"
                 },
-                "qds_nt": {
+                "qds.nt": {
                   "type": "long"
                 },
-                "qds_iv": {
+                "qds.iv": {
                   "type": "long"
                 },
-                "cp56time2a_milli": {
+                "cp56time2a.milli": {
                   "type": "long"
                 },
-                "cp56time2a_minute_mins": {
+                "cp56time2a.minute.mins": {
                   "type": "long"
                 },
-                "cp56time2a_minute_iv": {
+                "cp56time2a.minute.iv": {
                   "type": "long"
                 },
-                "cp56time2a_hour_hours": {
+                "cp56time2a.hour.hours": {
                   "type": "long"
                 },
-                "cp56time2a_hour_su": {
+                "cp56time2a.hour.su": {
                   "type": "long"
                 },
-                "cp56time2a_day_dow_day": {
+                "cp56time2a.day_dow.day": {
                   "type": "long"
                 },
-                "cp56time2a_day_dow_dow": {
+                "cp56time2a.day_dow.day_of_week": {
                   "type": "long"
                 },
-                "cp56time2a_mon": {
+                "cp56time2a.mon": {
                   "type": "long"
                 },
-                "cp56time2a_year": {
+                "cp56time2a.year": {
                   "type": "long"
                 }
               }
