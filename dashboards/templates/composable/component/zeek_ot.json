@@ -2747,1050 +2747,319 @@
                 }
               }
             },
-            "iec104_c_bo_na_1": {
+            "iec104_ctrl": {
               "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "bsi": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_m_bo_na_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "bsi": {
-                  "type": "long"
-                },
-                "qds.ov": {
-                  "type": "long"
-                },
-                "qds.bl": {
-                  "type": "long"
-                },
-                "qds.sb": {
-                  "type": "long"
-                },
-                "qds.nt": {
-                  "type": "long"
-                },
-                "qds.iv": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_m_bo_ta_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "bsi": {
-                  "type": "long"
-                },
-                "qds.ov": {
-                  "type": "long"
-                },
-                "qds.bl": {
-                  "type": "long"
-                },
-                "qds.sb": {
-                  "type": "long"
-                },
-                "qds.nt": {
-                  "type": "long"
-                },
-                "qds.iv": {
-                  "type": "long"
-                },
-                "cp24time2a.milli": {
-                  "type": "long"
-                },
-                "cp24time2a.min.mins": {
-                  "type": "long"
-                },
-                "cp24time2a.min.iv": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_m_bo_tb_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "bsi": {
-                  "type": "long"
-                },
-                "qds.ov": {
-                  "type": "long"
-                },
-                "qds.bl": {
-                  "type": "long"
-                },
-                "qds.sb": {
-                  "type": "long"
-                },
-                "qds.nt": {
-                  "type": "long"
-                },
-                "qds.iv": {
-                  "type": "long"
-                },
-                "cp56time2a.milli": {
-                  "type": "long"
-                },
-                "cp56time2a.minute.mins": {
-                  "type": "long"
-                },
-                "cp56time2a.minute.iv": {
-                  "type": "long"
-                },
-                "cp56time2a.hour.hours": {
-                  "type": "long"
-                },
-                "cp56time2a.hour.su": {
-                  "type": "long"
-                },
-                "cp56time2a.day_dow.day": {
-                  "type": "long"
-                },
-                "cp56time2a.day_dow.day_of_week": {
-                  "type": "long"
-                },
-                "cp56time2a.mon": {
-                  "type": "long"
-                },
-                "cp56time2a.year": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_m_ei_na_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "coi.r": {
-                  "type": "long"
-                },
-                "coi.i": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_c_cs_na_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "cp56time2a_t.milli": {
-                  "type": "long"
-                },
-                "cp56time2a_t.minute.mins": {
-                  "type": "long"
-                },
-                "cp56time2a_t.minute.iv": {
-                  "type": "long"
-                },
-                "cp56time2a_t.hour.hours": {
-                  "type": "long"
-                },
-                "cp56time2a_t.hour.su": {
-                  "type": "long"
-                },
-                "cp56time2a_t.day_dow.day": {
-                  "type": "long"
-                },
-                "cp56time2a_t.day_dow.day_of_week": {
-                  "type": "long"
-                },
-                "cp56time2a_t_mon": {
-                  "type": "long"
-                },
-                "cp56time2a_t.year": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_c_dc_na_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "dco_dco.on": {
-                  "type": "long"                
-                },
-                "dco.qu": {
-                  "type": "long"              
-                }, 
-                "dco.se": {
-                  "type": "long"              
-                }   
-              }
-            },
-            "iec104_m_dp_na_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "diq_dip": {
-                  "type": "long"
-                },
-                "diq.bl": {
-                  "type": "long"
-                },
-                "di.sb": {
-                  "type": "long"
-                },
-                "diq.nt": {
-                  "type": "long"
-                },
-                "diq.iv": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_m_dp_ta_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
+                "action": {
+                  "type": "keyword"
                 },
-                "diq_dip": {
-                  "type": "long"
-                },
-                "diq.bl": {
-                  "type": "long"
-                },
-                "di.sb": {
-                  "type": "long"
-                },
-                "diq.nt": {
-                  "type": "long"
-                },
-                "diq.iv": {
-                  "type": "long"
-                },
-                "cp24time2a.milli": {
-                  "type": "long"
-                },
-                "cp24time2a.minute.mins": {
-                  "type": "long"
-                },
-                "cp24time2a.minute.iv": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_m_dp_tb_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "info_obj_type": {
-                  "type": "long"
-                },
-                "diq.dpi": {
-                  "type": "long"
-                },
-                "diq.bl": {
-                  "type": "long"
-                },
-                "di.sb": {
-                  "type": "long"
-                },
-                "diq.nt": {
-                  "type": "long"
+                "asdu_type": {
+                  "type": "keyword"
                 },
-                "diq.iv": {
-                  "type": "long"
-                },
-                "cp56time2a.milli": {
-                  "type": "long"
-                },
-                "cp56time2a.minute.mins": {
-                  "type": "long"
+                "cot": {
+                  "type": "keyword"
                 },
-                "cp56time2a.minute.iv": {
+                "ca": {
                   "type": "long"
                 },
-                "cp56time2a.hour.hours": {
+                "ioa": {
                   "type": "long"
                 },
-                "cp56time2a.hour.su": {
-                  "type": "long"
+                "time_sync": {
+                  "type": "keyword"
                 },
-                "cp56time2a.day_dow.day": {
+                "tsc": {
                   "type": "long"
                 },
-                "cp56time2a.day_dow.day_of_week": {
+                "qrp": {
                   "type": "long"
                 },
-                "cp56time2a.mon": {
-                  "type": "long"
+                "actcon_ts": {
+                  "type": "date"
                 },
-                "cp56time2a.year": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_m_me_nc_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
+                "actterm_ts": {
+                  "type": "date"
                 },
-                "value": {
+                "duration": {
                   "type": "float"
                 },
-                "qds.ov": {
-                  "type": "long"
-                },
-                "qds.bl": {
-                  "type": "long"
-                },
-                "qds.sb": {
-                  "type": "long"
-                },
-                "qds.nt": {
-                  "type": "long"
-                },                
-                "qds.iv": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_m_me_tc_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "value": {
-                  "type": "long"
-                },
-                "qds.ov": {
-                  "type": "long"
-                },
-                "qds.bl": {
-                  "type": "long"
-                },
-                "qds.sb": {
-                  "type": "long"
-                },
-                "qds.nt": {
-                  "type": "long"
-                },
-                "qds.iv": {
-                  "type": "long"
-                },
-                "cp24time2a.milli": {
-                  "type": "long"
-                },
-                "cp24time2a.minute.mins": {
-                  "type": "long"
-                },
-                "cp24time2a.minute.iv": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_m_me_tf_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "value": {
-                  "type": "long"
-                },
-                "qds.ov": {
-                  "type": "long"
-                },
-                "qds.bl": {
-                  "type": "long"
-                },
-                "qds.sb": {
-                  "type": "long"
-                },
-                "qds.nt": {
-                  "type": "long"
-                },
-                "qds.iv": {
-                  "type": "long"
-                },
-                "cp56time2aP_milli": {
-                  "type": "long"
-                },
-                "cp56time2aP_minute.mins": {
-                  "type": "long"
-                },
-                "cp56time2aP_minute.iv": {
-                  "type": "long"
-                },
-                "cp56time2aP_hour.hours": {
-                  "type": "long"
-                },
-                "cp56time2aP_hour.su": {
-                  "type": "long"
-                },
-                "cp56time2aP_day_dow_day": {
-                  "type": "long"
-                },
-                "cp56time2aP_day_dow_dow": {
-                  "type": "long"
-                },
-                "cp56time2aP_mon": {
-                  "type": "long"
-                },
-                "cp56time2aP_year": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104": {
-              "properties": {
-                "apdu_len": {
-                  "type": "long"
-                },
-                "apci_type": {
+                "missing": {
                   "type": "keyword"
                 },
-                "apci_tx": {
-                  "type": "long"
-                },
-                "apci_rx": {
-                  "type": "long"
-                },
-                "asdu.info_object_type": {
+                "error": {
                   "type": "keyword"
                 },
-                "asdu.seq": {
-                  "type": "long"
-                },
-                "asdu.num_ix": {
+                "error_reason": {
                   "type": "keyword"
                 },
-                "asdu.cause_tx": {
-                  "type": "keyword"
-                },
-                "asdu.negative": {
-                  "type": "long"
-                },
-                "asdu.test": {
-                  "type": "long"
-                },
-                "asdu.originator_address": {
-                  "type": "long"
-                },
-                "asdu.common_address": {
-                  "type": "long"
-                },
-                "asdu.info_object_addr": { 
-                  "type": "keyword"
-                },
-                "asdu.interrogation_command": {
-                  "type": "keyword"
-                },
-                "asdu.single_point_information": {
-                  "type": "keyword"
-                },
-                "asdu.single_command": {
-                  "type": "keyword"
-                },
-                "asdu.double_command": {
-                  "type": "keyword"
-                },
-                "asdu.regulating_step_command": {
-                  "type": "keyword"
-                },
-                "asdu.bit_string_32_bit": {
-                  "type": "keyword"
-                },
-                "asdu.setpoint_command_scaled_value": {
-                  "type": "keyword"
-                },
-                "asdu.measured_value_scaled_value": {
-                  "type": "keyword"
-                },
-                "asdu.step_position_information": {
-                  "type": "keyword"
-                },
-                "asdu.single_point_information_CP56Time2a": {
-                  "type": "keyword"
-                },
-                "asdu.single_point_information_CP24Time2a": {
-                  "type": "keyword"
-                },
-                "asdu.clock_synchronization_command": {
-                  "type": "keyword"
-                },
-                "asdu.double_point_information": {
-                  "type": "keyword"
-                },
-                "asdu.double_point_information_CP56Time2a": {
-                  "type": "keyword"
-                },
-                "asdu.double_point_information_CP24Time2a": {
-                  "type": "keyword"
-                },             
-                "asdu.step_position_information_CP56Time2a": {
-                  "type": "keyword"
-                },
-                "asdu.step_position_information_CP24Time2a": {
-                  "type": "keyword"
-                },
-                "asdu.bit_string_32_bit_CP56Time2a": {
-                  "type": "keyword"
-                },
-                "asdu.bit_string_32_bit_CP24Time2a": {
-                  "type": "keyword"
-                },
-                "asdu.end_of_initialization": {
-                  "type": "keyword"
-                },
-                "asdu.measured_value_normalized_CP56Time2a": {
-                  "type": "keyword"
-                },
-                "asdu_measured_value_normalized_CP24Time2a": {
-                  "type": "keyword"
-                },
-                "asdu.measured_value_scaled_CP24Time2a": {
-                  "type": "keyword"
-                },
-                "asdu.measured_value_scaled_CP56Time2a": {
-                  "type": "keyword"
-                },
-                "asdu_measured_value_short_floating_point": {
-                  "type": "keyword"
-                },
-                "asdu.measured_value_short_floating_point_CP56Time2a": {
-                  "type": "keyword"
-                },
-                "asdu_measured_value_short_floating_point_CP24Time2a": {
-                  "type": "keyword"
-                },
-                "asdu.read_command_client": {
-                  "type": "keyword"
-                },
-                "asdu.read_command_server": {
-                  "type": "keyword"
-                },                
-                "asdu.qrp_client": {
-                  "type": "keyword"
-                },
-                "asdu.qrp_server": {
-                  "type": "keyword"
-                },
-                "asdu_uid": {
-                  "type": "keyword"
-                },
-                "request": {
-                  "type": "keyword"
-                },
-                "reply": {
+                "status": {
                   "type": "keyword"
                 }
               }
             },
-            "iec104_m_me_ta_1": {
+            "iec104_query": {
               "properties": {
-                "asdu_num": {
+                "action": {
+                  "type": "keyword"
+                },
+                "asdu_type": {
+                  "type": "keyword"
+                },
+                "cot": {
+                  "type": "keyword"
+                },
+                "ca": {
                   "type": "long"
                 },
-                "nva": {
-                  "type": "long"
-                },
-                "qds.ov": {
-                  "type": "long"
-                },
-                "qds.bl": {
-                  "type": "long"
-                },
-                "qds.sb": {
-                  "type": "long"
-                },
-                "qds.nt": {
-                  "type": "long"
-                },
-                "qds.iv": {
-                  "type": "long"
-                },
-                "cp24time2a.milli": {
-                  "type": "long"
-                },
-                "cp24time2a.minute.mins": {
-                  "type": "long"
-                },
-                "cp24time2a.minute.iv": {
-                  "type": "long"  
-                }
-              }
-            },
-            "iec104_m_me_td_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "nva": {
-                  "type": "long"
-                },
-                "qds.ov": {
-                  "type": "long"
-                },
-                "qds.bl": {
-                  "type": "long"
-                },
-                "qds.sb": {
-                  "type": "long"
-                },
-                "qds.nt": {
-                  "type": "long"
-                },
-                "qds.iv": {
-                  "type": "long"
-                },
-                "cp56time2a.milli": {
-                  "type": "long"
-                },
-                "cp56time2a.minute.mins": {
-                  "type": "long"
-                },
-                "cp56time2a.minute.iv": {
-                  "type": "long"
-                },
-                "cp56time2a.hour.hours": {
-                  "type": "long"
-                },
-                "cp56time2a.hour.su": {
-                  "type": "long"
-                },
-                "cp56time2a.day_dow.day": {
-                  "type": "long"
-                },
-                "cp56time2a.day_dow.day_of_week": {
-                  "type": "long"
-                },
-                "cp56time2a.mon": {
-                  "type": "long"
-                },
-                "cp56time2a.year": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_c_ic_na_1": {
-              "properties": {
-                "asdu_num": {
+                "ioa": {
                   "type": "long"
                 },
                 "qoi": {
                   "type": "long"
+                },
+                "qcc_rqt": {
+                  "type": "long"
+                },
+                "qcc_frz": {
+                  "type": "long"
+                },
+                "actcon_ts": {
+                  "type": "date"
+                },
+                "actterm_ts": {
+                  "type": "date"
+                },
+                "duration": {
+                  "type": "float"
+                },
+                "missing": {
+                  "type": "keyword"
+                },
+                "error": {
+                  "type": "keyword"
+                },
+                "error_reason": {
+                  "type": "keyword"
+                },
+                "status": {
+                  "type": "keyword"
                 }
               }
             },
-            "iec104_c_rp_nc_1_qrp_client": {
+            "iec104_read": {
               "properties": {
-                "asdu_num": {
+                "action": {
+                  "type": "keyword"
+                },
+                "asdu_type": {
+                  "type": "keyword"
+                },
+                "cot": {
+                  "type": "keyword"
+                },
+                "ca": {
+                  "type": "long"
+                },
+                "ioa": {
                   "type": "long"
                 },
                 "raw_data": {
+                  "type": "long"
+                },
+                "actcon_ts": {
+                  "type": "date"
+                },
+                "duration": {
+                  "type": "float"
+                },
+                "missing": {
+                  "type": "keyword"
+                },
+                "error": {
+                  "type": "keyword"
+                },
+                "error_reason": {
+                  "type": "keyword"
+                },
+                "status": {
                   "type": "keyword"
                 }
               }
             },
-            "iec104_c_rp_nc_1_qrp_server": {
+            "iec104_write": {
               "properties": {
-                "asdu_num": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_c_rc_na": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "rco.up_down": {
-                  "type": "long"
-                },
-                "rco.qu": {
-                  "type": "long"
-                },
-                "rco.se": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_c_rd_na_1_read_command_client": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "raw_data": {
-                  "type": "keyword"
-                }
-              }
-            },
-            "iec104_c_rd_na_1_read_command_server": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_c_sc_na_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "sco.on": {
-                  "type": "long"
-                },
-                "sco.qu": {
-                  "type": "long"
-                },
-                "sco.se": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_m_sp_na_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "siq.spi": {
-                  "type": "long"
-                },
-                "siq.bl": {
-                  "type": "long"
-                },
-                "siq.sv": {
-                  "type": "long"
-                },
-                "siq.nt": {
-                  "type": "long"
-                },
-                "siq.iv": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_m_sp_ta_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "siq.spi": {
-                  "type": "long"
-                },
-                "siq.bl": {
-                  "type": "long"
-                },
-                "siq.sv": {
-                  "type": "long"
-                },
-                "siq.nt": {
-                  "type": "long"
-                },
-                "siq.iv": {
-                  "type": "long"
-                },
-                "cp24time2a.milli": {
-                  "type": "long"
-                },
-                "cp24time2a.minute.mins": {
-                  "type": "long"
-                },
-                "cp24time2a.minute.iv": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_m_sp_tb_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "siq.spi": {
-                  "type": "long"
-                },
-                "siq.bl": {
-                  "type": "long"
-                },
-                "siq.sv": {
-                  "type": "long"
-                },
-                "siq.nt": {
-                  "type": "long"
-                },
-                "siq.iv": {
-                  "type": "long"
-                },
-                "cp56time2a.milli": {
-                  "type": "long"
-                },
-                "cp56time2a.minute.mins": {
-                  "type": "long"
-                },
-                "cp56time2a.minute.iv": {
-                  "type": "long"
-                },
-                "cp56time2a.hour.hours": {
-                  "type": "long"
-                },
-                "cp56time2a.hour.su": {
-                  "type": "long"
-                },
-                "cp56time2a.day_dow.day": {
-                  "type": "long"
-                },
-                "cp56time2a.day_dow.day_of_week": {
-                  "type": "long"
-                },
-                "cp56time2a.mon": {
-                  "type": "long"
-                },
-                "cp56time2a.year": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_m_me_nb_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "sva": {
-                  "type": "long"
-                },
-                "qds.ov": {
-                  "type": "long"
-                },
-                "qds.bl": {
-                  "type": "long"
-                },
-                "qds.sb": {
-                  "type": "long"
-                },
-                "qds.nt": {
-                  "type": "long"
-                },
-                "qds.iv": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_m_me_tb_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "sva": {
-                  "type": "long"
-                },
-                "qds.ov": {
-                  "type": "long"
-                },
-                "qds.bl": {
-                  "type": "long"
-                },
-                "qds.sb": {
-                  "type": "long"
-                },
-                "qds.nt": {
-                  "type": "long"
-                },
-                "qds.iv": {
-                  "type": "long"
-                },
-                "cp24time2a.milli": {
-                  "type": "long"
-                },
-                "cp24time2a.minute.mins": {
-                  "type": "long"
-                },
-                "cp24time2a.minute.iv": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_m_me_te_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "sva": {
-                  "type": "long"
-                },
-                "qds.ov": {
-                  "type": "long"
-                },
-                "qds.bl": {
-                  "type": "long"
-                },
-                "qds.sb": {
-                  "type": "long"
-                },
-                "qds.nt": {
-                  "type": "long"
-                },
-                "qds.iv": {
-                  "type": "long"
-                },
-                "cp56time2a.milli": {
-                  "type": "long"
-                },
-                "cp56time2a.minute.mins": {
-                  "type": "long"
-                },
-                "cp56time2a.minute.iv": {
-                  "type": "long"
-                },
-                "cp56time2a.hour.hours": {
-                  "type": "long"
-                },
-                "cp56time2a.hour.su": {
-                  "type": "long"
-                },
-                "cp56time2a.day_dow.day": {
-                  "type": "long"
-                },
-                "cp56time2a.day_dow.day_of_week": {
-                  "type": "long"
-                },
-                "cp56time2a.mon": {
-                  "type": "long"
-                },
-                "cp56time2a.year": {
-                  "type": "long"
-                }
-              }
-            },
-            "iec104_c_se_nb_1": {
-              "properties": {
-                "asdu_num": {
-                  "type": "long"
-                },
-                "sva": {
-                  "type": "long"
-                },
-                "qos.ql": {
+                "action": {
                   "type": "keyword"
                 },
-                "qos.se": {
+                "asdu_type": {
                   "type": "keyword"
-                }
-              }
-            },
-            "iec104_m_st_na_1": {
-              "properties": {
-                "asdu_num": {
+                },
+                "cot": {
+                  "type": "keyword"
+                },
+                "ca": {
+                  "type": "long"
+                },
+                "ioa": {
                   "type": "long"
                 },
                 "value": {
                   "type": "keyword"
                 },
-                "qds.ov": {
+                "se": {
+                  "type": "keyword"
+                },
+                "qualifier": {
                   "type": "long"
                 },
-                "qds.bl": {
-                  "type": "long"
+                "actcon_ts": {
+                  "type": "date"
                 },
-                "qds.sb": {
-                  "type": "long"
+                "actterm_ts": {
+                  "type": "date"
                 },
-                "qds.nt": {
-                  "type": "long"
+                "duration": {
+                  "type": "float"
                 },
-                "qds.iv": {
-                  "type": "long"
+                "missing": {
+                  "type": "keyword"
+                },
+                "error": {
+                  "type": "keyword"
+                },
+                "error_reason": {
+                  "type": "keyword"
+                },
+                "status": {
+                  "type": "keyword"
                 }
               }
             },
-            "iec104_m_st_ta_1": {
+            "iec104_file": {
               "properties": {
-                "asdu_num": {
+                "ts_end": {
+                  "type": "date"
+                },
+                "duration": {
+                  "type": "float"
+                },
+                "direction": {
+                  "type": "keyword"
+                },
+                "ca": {
+                  "type": "long"
+                },
+                "ioa": {
+                  "type": "long"
+                },
+                "fname": {
+                  "type": "long"
+                },
+                "segments": {
+                  "type": "long"
+                },
+                "bytes": {
+                  "type": "long"
+                },
+                "status": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "iec104_telemetry": {
+              "properties": {
+                "asdu_type": {
+                  "type": "keyword"
+                },
+                "cot": {
+                  "type": "keyword"
+                },
+                "ca": {
+                  "type": "long"
+                },
+                "ioa": {
                   "type": "long"
                 },
                 "value": {
                   "type": "keyword"
                 },
-                "qds.ov": {
-                  "type": "long"
+                "spi": {
+                  "type": "keyword"
                 },
-                "qds.bl": {
-                  "type": "long"
+                "bl": {
+                  "type": "keyword"
                 },
-                "qds.sb": {
-                  "type": "long"
+                "sb": {
+                  "type": "keyword"
                 },
-                "qds.nt": {
-                  "type": "long"
+                "nt": {
+                  "type": "keyword"
                 },
-                "qds.iv": {
-                  "type": "long"
+                "iv": {
+                  "type": "keyword"
                 },
-                "cp24time2a.milli": {
-                  "type": "long"
+                "ov": {
+                  "type": "keyword"
                 },
-                "cp24time2a.minute.mins": {
-                  "type": "long"
+                "cp24": {
+                  "type": "keyword"
                 },
-                "cp24time2a.minute.iv": {
-                  "type": "long"
+                "cp56": {
+                  "type": "keyword"
                 }
               }
             },
-            "iec104_m_st_tb_1": {
+            "iec104_param": {
               "properties": {
-                "asdu_num": {
+                "action": {
+                  "type": "keyword"
+                },
+                "asdu_type": {
+                  "type": "keyword"
+                },
+                "cot": {
+                  "type": "keyword"
+                },
+                "ca": {
+                  "type": "long"
+                },
+                "ioa": {
                   "type": "long"
                 },
                 "value": {
                   "type": "keyword"
                 },
-                "qds.ov": {
+                "qpm_kpa": {
                   "type": "long"
                 },
-                "qds.bl": {
+                "qpm_pop": {
+                  "type": "keyword"
+                },
+                "qpm_lpc": {
+                  "type": "keyword"
+                },
+                "qpa": {
                   "type": "long"
                 },
-                "qds.sb": {
-                  "type": "long"
+                "actcon_ts": {
+                  "type": "date"
                 },
-                "qds.nt": {
-                  "type": "long"
+                "actterm_ts": {
+                  "type": "date"
                 },
-                "qds.iv": {
-                  "type": "long"
+                "duration": {
+                  "type": "float"
                 },
-                "cp56time2a.milli": {
-                  "type": "long"
+                "missing": {
+                  "type": "keyword"
                 },
-                "cp56time2a.minute.mins": {
-                  "type": "long"
+                "error": {
+                  "type": "keyword"
                 },
-                "cp56time2a.minute.iv": {
-                  "type": "long"
+                "error_reason": {
+                  "type": "keyword"
                 },
-                "cp56time2a.hour.hours": {
-                  "type": "long"
-                },
-                "cp56time2a.hour.su": {
-                  "type": "long"
-                },
-                "cp56time2a.day_dow.day": {
-                  "type": "long"
-                },
-                "cp56time2a.day_dow.day_of_week": {
-                  "type": "long"
-                },
-                "cp56time2a.mon": {
-                  "type": "long"
-                },
-                "cp56time2a.year": {
-                  "type": "long"
+                "status": {
+                  "type": "keyword"
                 }
               }
             },

@@ -53,6 +53,7 @@ global disable_ics_ethercat = (getenv("ZEEK_DISABLE_ICS_ETHERCAT") == true_regex
 global disable_ics_genisys = (getenv("ZEEK_DISABLE_ICS_GENISYS") == true_regex) ? T : F;
 global disable_ics_ge_srtp = (getenv("ZEEK_DISABLE_ICS_GE_SRTP") == true_regex) ? T : F;
 global disable_ics_hart_ip = (getenv("ZEEK_DISABLE_ICS_HART_IP") == true_regex) ? T : F;
+global disable_ics_iec104 = (getenv("ZEEK_DISABLE_ICS_IEC104") == true_regex) ? T : F;
 global disable_ics_omron_fins = (getenv("ZEEK_DISABLE_ICS_OMRON_FINS") == true_regex) ? T : F;
 global disable_ics_opcua_binary = (getenv("ZEEK_DISABLE_ICS_OPCUA_BINARY") == true_regex) ? T : F;
 global disable_ics_modbus = (getenv("ZEEK_DISABLE_ICS_MODBUS") == true_regex) ? T : F;
@@ -231,6 +232,9 @@ event zeek_init() &priority=-5 {
   if (disable_ics_all || disable_ics_roc_plus) {
     Spicy::disable_protocol_analyzer(Analyzer::ANALYZER_ROC_PLUS_TCP);
     Spicy::disable_protocol_analyzer(Analyzer::ANALYZER_ROC_PLUS_UDP);
+  }
+  if (disable_ics_all || disable_ics_iec104) {
+    Analyzer::disable_analyzer(Analyzer::ANALYZER_SPICY_IEC104);
   }
   if (disable_ics_all || disable_ics_s7comm) {
     Analyzer::disable_analyzer(Analyzer::ANALYZER_S7COMM_TCP);
