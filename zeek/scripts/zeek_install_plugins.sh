@@ -152,6 +152,7 @@ ZKG_GITHUB_URLS=(
   "https://github.com/mmguero-dev/zeek-fuzzy-hashing|master"
   "https://github.com/mitre-attack/bzar"
   "https://github.com/mmguero-dev/json-streaming-logs|master"
+  "https://github.com/cert-lv/spicy-iec104|main"
   "https://github.com/ncsa/bro-is-darknet"
   "https://github.com/ncsa/bro-simple-scan"
   "https://github.com/precurse/zeek-httpattacks"
