@@ -155,7 +155,6 @@ ZKG_GITHUB_URLS=(
   "https://github.com/cert-lv/spicy-iec104|main"
   "https://github.com/ncsa/bro-is-darknet"
   "https://github.com/ncsa/bro-simple-scan"
-  "https://github.com/parsitects/icsnpp-iec104"
   "https://github.com/precurse/zeek-httpattacks"
   "https://github.com/salesforce/GQUIC_Protocol_Analyzer"
   "https://github.com/SeisoLLC/zeek-kafka|main"
